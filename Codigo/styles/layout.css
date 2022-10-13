@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    vertical-align: top;
+}
+
+hr {
+    border-width: 0; 
+	height: 1px;
+	border-top-width: 1px;
+    height: 1%;
+    border-color: darkgray;
+}
+
+.default-btn {
+    border: 0px;
+    font-size: 16px;
+    padding: 10px 24px;
+}
+
+.header-svg {
+    width: 45px;
+    vertical-align: middle;
+}
+
+.sobre-o-bilhete {
+    height: 80%;
+    text-align: center;
+    border: 1px solid black;
+}
+
+@media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+    }
+  }
