@@ -9,6 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/475c82acfd.js" crossorigin="anonymous"></script>
+    <script src="scripts/scriptTelaInicial.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="http://cdnpuc.sis.puc-campinas.edu.br/img/favicon.png">
     <title>Geração do Bilhete</title>
 </head>
@@ -18,4 +19,12 @@
         GERAÇÃO DO BILHETE
     <hr>
     </h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <button type="button" class="btn default-btn" onclick="gerarCodigo()">Gerar código</button>
+                <p id="codigo"></p>
+            </div>
+        </div>
+    </div>
 </body>
