@@ -1,9 +1,11 @@
 function gerarCodigo(){
     chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    str = '';
+    cod = '';
     for (i = 0; i < 8; i++) {
-        str += chars.charAt(Math.floor(Math.random() * chars.length));
+        cod += chars.charAt(Math.floor(Math.random() * chars.length));
     }
 
-    return str;
+    console.dir(cod);
+    document.codeGenerator.res = cod;
+    return cod;
 }
