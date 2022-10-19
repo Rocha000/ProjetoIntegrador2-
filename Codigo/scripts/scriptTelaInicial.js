@@ -6,6 +6,7 @@ function gerarCodigo(){
     }
 
     console.dir(cod);
-    document.codeGenerator.res = cod;
+    textNode = document.createTextNode(cod);
+    document.getElementById("res").appendChild(textNode);
     return cod;
 }
