@@ -1,4 +1,4 @@
-function BD () {
+/*function BD () {
   process.env.ORA_STDZ = 'UTC-3'; // Horário de Brasília
 
   this.getConexao = async function () { // função interna SEMPRE deve começar com "this"
@@ -53,7 +53,11 @@ const bd = new BD();
 
 await bd.estrutureSe();
 global.livros = new Livros (bd);
+*/
+const express = require("express");
+const app = express();
 
+app.use(express.static(__dirname + "/src"));
 app.get("/", function(req,res){
   res.sendFile(__dirname + "/GeracaoBilhete.html");
 });
