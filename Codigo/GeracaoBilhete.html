@@ -19,17 +19,15 @@
         GERAÇÃO DO BILHETE
     <hr>
     </h1>
-    <form name="codeGenerator" method="post" action="">
-        <fieldset>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <button type="button" class="btn default-btn" onclick="gerarCodigo()">Gerar código</button>
-                        <label type="text" id="res" name="res"></label>
-                    </div>
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <button type="button" class="btn default-btn" onclick="gerarCodigo()">Gerar código</button>
+                <label type="text" id="res" name="res"></label>
             </div>
-        </fieldset>
-    </form>
+        </div>
+        <input type="text" id="txt1" name="txt1" onkeyup="copiaTexto('txt1', 'txt2')"/>
+        <input type="text" id="txt2" name="txt2"/>
+    </div>
 </body>
 </html>

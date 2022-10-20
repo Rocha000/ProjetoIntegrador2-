@@ -10,3 +10,9 @@ function gerarCodigo(){
     console.dir(cod);
     return cod;
 }
+
+function copiaTexto (idOrigem, idDestino){
+    var txtOrigem = document.getElementById(idOrigem); //
+    var txtDestino = document.getElementById(idDestino); //
+    return txtDestino.value = txtOrigem.value;
+}
