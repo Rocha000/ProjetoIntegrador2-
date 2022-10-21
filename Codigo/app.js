@@ -1,4 +1,4 @@
-/*function BD () {
+function BD () {
   process.env.ORA_STDZ = 'UTC-3'; // Horário de Brasília
 
   this.getConexao = async function () { // função interna SEMPRE deve começar com "this"
@@ -46,17 +46,15 @@ async function inclusao (req, res) {
 
   const livro = new Livro (req.body.codigo, req.body.nome, req.body.preco);
 }
-
 const express = require('express');
 const app = express();
 const bd = new BD();
 
+/*
 await bd.estrutureSe();
 global.livros = new Livros (bd);
-*/
 const express = require("express");
-const app = express();
-
+*/
 app.use(express.static(__dirname + "/src"));
 app.get("/", function(req,res){
   res.sendFile(__dirname + "/GeracaoBilhete.html");
@@ -65,3 +63,25 @@ app.get("/", function(req,res){
 app.listen(8081, function(){
   console.log("Está no ar!");
 });
+async function ativacaoDoServidor ()
+{
+    const bd = new BD ();
+	await bd.estrutureSe();
+    global.livros = new Livros (bd);
+
+    const express = require('express');
+    const app     = express();
+    
+    app.use(express.json());   // faz com que o express consiga processar JSON
+    app.use(middleWareGlobal); // app.use cria o middleware global
+
+    app.post  ('/livros'        , inclusao); 
+    app.get   ('/livros'        , recuperacaoDeTodos);
+    app.get   ('/livros/:codigo', recuperacaoDeUm);
+    app.put   ('/livros/:codigo', atualizacao);
+    app.delete('/livros/:codigo', remocao);
+
+    console.log ('Servidor ativo na porta 3000...');
+    app.listen(3000);
+}
+ativacaoDoServidor();

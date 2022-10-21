@@ -1,12 +1,13 @@
 const oracledb = require('oracledb');
 
+
 async function run() {
 
   let connection;
 
   try {
 
-    connection = await oracledb.getConnection({ user: "luan.mtarran@gmail.com", password: "#Luan06#", connectionString: "localhost/xepdb1" });
+    connection = await oracledb.getConnection({ user: "demonode", password: "XXXX", connectionString: "localhost/xepdb1" });
 
     console.log("Successfully connected to Oracle Database");
 
