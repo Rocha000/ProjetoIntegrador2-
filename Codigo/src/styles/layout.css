@@ -28,8 +28,11 @@ hr {
 
 .default-btn {
     border: 0px;
+    border-radius: 10px;
     font-size: 16px;
     padding: 10px 24px;
+    background-color: #CCE0FF;
+    cursor: pointer;
 }
 
 .header-svg {
@@ -43,11 +46,40 @@ hr {
     border: 1px solid black;
 }
 
+.row{
+    text-align: center;
+}
+
 .logo{
     width: 25em;
-    margin-left: 10em;
+    margin-top: -3.5em;
+    margin-left: -10em;
     vertical-align: top;
     border-radius: 50%;
+}
+
+.codigoGerado{
+    margin-top: 1em;
+}
+
+.aceiteTermosDeUso{
+    margin-bottom: 1em;
+}
+
+.termosDeUso {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 300px;
+    height: 180px;
+    border: solid 1px #000000;
+    background: #ffffff;
+    display: block;
+    text-size-adjust: auto;
+    overflow: hidden;
+    text-overflow: clip;
 }
 
 @media screen and (max-width: 600px) {

@@ -10,26 +10,32 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="scripts/scriptTelaInicial.js"></script>
     <script src="inserirBD.js"></script>
-
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
     <title>Geração do Bilhete</title>
 </head>
 <body>
-<!----    <h1>
-        <i class="fa-solid fa-ticket"></i>
-        GERAÇÃO DO BILHETE
-    </h1>-->
     <img src="images/logocomletra.png" class="logo">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6">
-                <button type="button" class="btn default-btn" onclick="gerarCodigo()">Gerar código</button>
-                <label type="text" id="res" name="res"></label>
+            <div class="termosDeUso">
+                <h2>Termos de Uso</h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel ut quisquam enim a corporis. 
+                    Saepe, assumenda enim, consequuntur nam perferendis aliquid fugit aut molestiae hic veniam 
+                    illo tempore at illum.
+                </p>
             </div>
+            <div class="aceiteTermosDeUso">
+                <input type="checkbox" id="aceiteTermosDeUso" value="true">
+                <label for="aceiteTermosDeUso">Li e aceito os termos de uso</label>
+            </div>
+            <a type="button" class="button default-btn" id="gerarCodigoBtn" onclick="gerarCodigo('aceiteTermosDeUso')">
+                Gerar código
+            </a>
+            <br>
+            <label type="text" id="res" name="res" class="codigoGerado"></label>
         </div>
-        <!--input type="text" id="txt1" name="txt1" onkeyup="copiaTexto('txt1', 'txt2')"/>
-        <input type="text" id="txt2" name="-->
     </div>
 </body>
 </html>

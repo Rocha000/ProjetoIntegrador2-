@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const conexao = require("./connect");
 const inserirCod = require("./inserirBD")
 
 app.use(express.static(__dirname + "/src"));
