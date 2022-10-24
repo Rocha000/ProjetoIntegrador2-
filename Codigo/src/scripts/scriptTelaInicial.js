@@ -15,4 +15,9 @@ async function gerarCodigo (aceite) {
     await fetch(`http://localhost:8081/bilhetes/create/${cod}`,{method:"POST"}).catch(console.log(res))
 }
 
+function aparecerPopUp(popup) {
+    document.getElementById(popup).style.display = "block";
+    document.getElementById(popup).style.opacity = "1";
+}
+
 module.exports = gerarCodigo();

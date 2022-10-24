@@ -46,19 +46,19 @@ hr {
     border: 1px solid black;
 }
 
-.row{
+.row {
     text-align: center;
 }
 
-.logo{
-    width: 25em;
+.logo {
+    width: 30em;
     margin-top: -3.5em;
-    margin-left: -10em;
+    margin-left: -12em;
     vertical-align: top;
     border-radius: 50%;
 }
 
-.codigoGerado{
+.codigoGerado {
     margin-top: 1em;
 }
 
@@ -67,23 +67,69 @@ hr {
 }
 
 .termosDeUso {
-    top: 0;
-    bottom: 0;
+    display: none;
+}
+  
+/* termosDeUso aberto */
+.termosDeUso:target {
+    position: absolute;
     left: 0;
-    right: 0;
-    margin: auto;
-    width: 300px;
-    height: 180px;
-    border: solid 1px #000000;
-    background: #ffffff;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+  
+/* Conteúdo da termosDeUso */
+.termosDeUso figcaption {
+    width: 30em;
+    height: 35em;
+    position: relative;
+    padding: 1.5em;
+    background-color: white;
+    border: black solid 0.5px;
+    overflow-y: scroll;
+}
+  
+  /* Botão fechar */
+.termosDeUso .close {
+    position: relative;
     display: block;
-    text-size-adjust: auto;
-    overflow: hidden;
-    text-overflow: clip;
+}
+  
+.termosDeUso .close::after {
+    right: -1rem;
+    top: -1rem;
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    display: flex;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    border-radius: 50%;
+    color: white;
+    content: "×";
+    cursor: pointer;
+}
+  
+  /* termosDeUso overlay */
+.termosDeUso .close::before {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0,0,0,.7);
+    content: "";
+    cursor: default;
 }
 
 @media screen and (max-width: 600px) {
     .column {
       width: 100%;
     }
-  }
+}
