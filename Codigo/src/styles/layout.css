@@ -10,7 +10,7 @@ body {
     background: inherit;
     padding: 0;
     margin: 0;
-    color: black;
+    color: white;
 }
 
 h1, h2 {
@@ -92,6 +92,7 @@ hr {
     background-color: white;
     border: black solid 0.5px;
     overflow-y: scroll;
+    color: black;
 }
   
   /* Botão fechar */

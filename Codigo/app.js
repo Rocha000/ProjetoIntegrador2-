@@ -14,4 +14,3 @@ app.post("/bilhetes/create/:cod", async (req,res,next)=>{
 app.listen(8081, function(){
   console.log("Está no ar!");
 });
-
