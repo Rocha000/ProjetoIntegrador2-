@@ -1,7 +1,6 @@
 html {
-    background-image: linear-gradient(to bottom right, #CCE0FF 0%, #a967ff 100%);
+    background-image: url("../images/plano_de_fundo_estacao.jpg");
     background-position: center;
-    background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
 }
@@ -11,9 +10,10 @@ body {
     background: inherit;
     padding: 0;
     margin: 0;
+    color: black;
 }
 
-h1 {
+h1, h2 {
     text-align: center;
     vertical-align: top;
 }
@@ -50,19 +50,16 @@ hr {
     text-align: center;
 }
 
-.logo {
-    width: 30em;
-    margin-top: -3.5em;
-    margin-left: -12em;
+.logo img {
+    width: 5em;
     vertical-align: top;
-    border-radius: 50%;
 }
 
 .codigoGerado {
     margin-top: 1em;
 }
 
-.aceiteTermosDeUso{
+.aceiteTermosDeUso {
     margin-bottom: 1em;
 }
 
@@ -82,13 +79,15 @@ hr {
     justify-content: center;
     text-align: justify;
     overflow: hidden;
+    background-color: rgba(161, 161, 161, 0.274);
 }
-  
+
 /* Conteúdo da termosDeUso */
 .termosDeUso figcaption {
     width: 30em;
     height: 35em;
     position: relative;
+    justify-content: center;
     padding: 1em;
     background-color: white;
     border: black solid 0.5px;
@@ -125,13 +124,18 @@ hr {
     width: 100%;
     height: 100%;
     position: fixed;
-    background-color: rgba(0,0,0,.7);
     content: "";
     cursor: default;
 }
 
 @media screen and (max-width: 600px) {
+    .logo img {
+        width: 15%;
+    }
     .column {
-      width: 100%;
+        width: 100%;
+    }
+    .termosDeUso figcaption {
+        width: 100%;
     }
 }
