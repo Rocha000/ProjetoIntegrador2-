@@ -26,8 +26,29 @@ hr {
     border-color: darkgray;
 }
 
+.aceiteTermosDeUso {
+    margin-bottom: 1em;
+}
+
+.bilhetes {
+    background-color: #CCE0FF;
+    margin: 2.5%;
+    color: black;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    width: 20%;
+    height: inherit;
+    float: left;
+    text-align: center;
+    box-shadow: 2px 2px 4px 25% rgb(0, 8, 24);
+}
+
+.codigoGerado {
+    margin-top: 1em;
+}
+
 .default-btn {
-    border: 0px;
+    border: 0px gray;
     border-radius: 10px;
     font-size: 16px;
     padding: 10px 24px;
@@ -35,17 +56,14 @@ hr {
     cursor: pointer;
 }
 
+.galeriaBilhetes {
+    display: block;
+    margin-left: auto;
+}
+
 .header-svg {
     width: 45px;
     vertical-align: middle;
-}
-
-.sobre-o-bilhete {
-    border: 1px solid black;
-}
-
-.row {
-    text-align: center;
 }
 
 .logo img {
@@ -53,12 +71,14 @@ hr {
     vertical-align: top;
 }
 
-.codigoGerado {
-    margin-top: 1em;
+.row {
+    text-align: center;
 }
 
-.aceiteTermosDeUso {
-    margin-bottom: 1em;
+.sobre-o-bilhete {
+    border: 1px solid black;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
 }
 
 .termosDeUso {
@@ -82,9 +102,10 @@ hr {
 
 /* Conteúdo da termosDeUso */
 .termosDeUso figcaption {
-    width: 30em;
-    height: 35em;
+    width: 40%;
+    height: 80%;
     position: relative;
+    margin: auto;
     justify-content: center;
     padding: 1em;
     background-color: white;
@@ -126,28 +147,6 @@ hr {
     content: "";
     cursor: default;
 }
-
-.galeriaBilhetes {
-    display: block;
-    margin-left: auto;
-}
-
-.bilhetes {
-    background-color: #CCE0FF;
-    margin: 2.5%;
-    color: black;
-    border: 1px solid lightgray;
-    border-radius: 10px;
-    width: 20%;
-    height: 8em;
-    float: left;
-    text-align: center;
-    box-shadow: 2px 2px 4px 25% rgb(0, 8, 24);
-}
-
-.bilhetes:hover {
-    border: 1px solid #777;
-}
 /*
 @media screen and (max-width: 920px) {
 }
@@ -163,7 +162,7 @@ hr {
         width: 100%;
     }
     .bilhetes {
-        width: 80%;
-        margin: 10%;
+        width: 60%;
+        margin-left: 20%;
     }
 }
