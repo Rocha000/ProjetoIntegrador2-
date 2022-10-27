@@ -41,8 +41,6 @@ hr {
 }
 
 .sobre-o-bilhete {
-    height: 80%;
-    text-align: center;
     border: 1px solid black;
 }
 
@@ -90,9 +88,9 @@ hr {
     justify-content: center;
     padding: 1em;
     background-color: white;
-    border: black solid 0.5px;
     overflow-y: scroll;
     color: black;
+    box-shadow: 1px 1px 2px lightgray;
 }
   
   /* Botão fechar */
@@ -129,6 +127,31 @@ hr {
     cursor: default;
 }
 
+.galeriaBilhetes {
+    display: block;
+    margin-left: auto;
+}
+
+.bilhetes {
+    background-color: #CCE0FF;
+    margin: 2.5%;
+    color: black;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    width: 20%;
+    height: 8em;
+    float: left;
+    text-align: center;
+    box-shadow: 2px 2px 4px 25% rgb(0, 8, 24);
+}
+
+.bilhetes:hover {
+    border: 1px solid #777;
+}
+/*
+@media screen and (max-width: 920px) {
+}
+*/
 @media screen and (max-width: 600px) {
     .logo img {
         width: 15%;
@@ -138,5 +161,9 @@ hr {
     }
     .termosDeUso figcaption {
         width: 100%;
+    }
+    .bilhetes {
+        width: 80%;
+        margin: 10%;
     }
 }
