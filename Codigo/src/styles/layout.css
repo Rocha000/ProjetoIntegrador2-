@@ -13,6 +13,10 @@ body {
     color: white;
 }
 
+a {
+    color: lightblue;
+}
+
 h1, h2 {
     text-align: center;
     vertical-align: top;
@@ -43,6 +47,10 @@ hr {
     box-shadow: 2px 2px 4px 25% rgb(0, 8, 24);
 }
 
+.btn {
+    color: black;
+}
+
 .codigoGerado {
     margin-top: 1em;
 }
@@ -66,7 +74,11 @@ hr {
     vertical-align: middle;
 }
 
-.logo img {
+button.logo {
+    background-color: transparent;
+}
+
+img.logo {
     width: 5em;
     vertical-align: top;
 }
