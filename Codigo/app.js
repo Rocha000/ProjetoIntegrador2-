@@ -3,11 +3,16 @@ const app = express();
 const inserirCod = require("./inserirBD")
 
 app.use(express.static(__dirname + "/src"));
-app.post("/", function(req,res){
-  res.sendFile(__dirname + "/GeracaoBilhete.html");
-});
-app.post("/TelaInicial", function(req,res){
+
+app.get("/", function(req,res){
   res.sendFile(__dirname + "/TelaInicial.html");
+});
+
+app.post("/", function(req,res){
+  res.sendFile(__dirname + "/TelaInicial.html");
+});
+app.post("/GeracaoBilhete", function(req,res){
+  res.sendFile(__dirname + "/GeracaoBilhete.html");
 });
 app.post("/Recarga", function(req,res){
   res.sendFile(__dirname + "/Recarga.html");

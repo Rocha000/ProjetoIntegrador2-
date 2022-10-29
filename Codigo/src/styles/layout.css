@@ -76,6 +76,7 @@ hr {
 
 button.logo {
     background-color: transparent;
+    border: none;
 }
 
 img.logo {
