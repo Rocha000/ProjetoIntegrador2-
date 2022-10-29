@@ -1,39 +1,33 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/layout.css">
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="styles/layout.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="scripts/scriptTelaInicial.js"></script>
     <script src="inserirBD.js"></script>
-    <script> 
-    $(function(){
-      console.log('init');
-      $("#header").load("/HeaderAndFooter.html"); 
-      $("#footer").load("/HeaderAndFooter.html"); 
-    });
-    </script>
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png"/>
     <title>Tela Inicial</title>
 </head>
 <body>
-    <div id="header" style="text-align:center;"></div>
     <form action="/" method="POST">
         <button type="submit" class="logo">
             <img src="images/logocomletra_branco.png" class="logo">
         </button>
     </form>
     <div class="container">
-        <form action="/GeracaoBilhete" method="POST">
-            <button type="submit" class="default-btn" id="gerarCodigoBtn" href="/GeracaoBilhete.html">
-                Geração do bilhete
-            </button>
-        </form>
+        </div class="row">
+            <form action="/GeracaoBilhete" method="POST">
+                <button type="submit" class="default-btn" id="gerarCodigoBtn" href="/GeracaoBilhete.html">
+                    Geração do bilhete
+                </button>
+            </form>
+        </div>
     </div>
 </body>
 </html>

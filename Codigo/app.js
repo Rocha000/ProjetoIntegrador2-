@@ -4,18 +4,26 @@ const inserirCod = require("./inserirBD")
 
 app.use(express.static(__dirname + "/src"));
 
+//PARA DIGITAR PELO URL
 app.get("/", function(req,res){
   res.sendFile(__dirname + "/TelaInicial.html");
 });
+app.get("/Recarga", function(req,res){
+  res.sendFile(__dirname + "/Recarga.html");
+});
+app.get("/GeracaoBilhete", function(req,res){
+  res.sendFile(__dirname + "/GeracaoBilhete.html");
+});
 
+//PARA COLOCAR NOS BOTÕES
 app.post("/", function(req,res){
   res.sendFile(__dirname + "/TelaInicial.html");
 });
-app.post("/GeracaoBilhete", function(req,res){
-  res.sendFile(__dirname + "/GeracaoBilhete.html");
-});
 app.post("/Recarga", function(req,res){
   res.sendFile(__dirname + "/Recarga.html");
+});
+app.post("/GeracaoBilhete", function(req,res){
+  res.sendFile(__dirname + "/GeracaoBilhete.html");
 });
 
 app.post("/bilhetes/create/:cod", async (req,res,next)=>{

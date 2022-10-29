@@ -22,6 +22,15 @@ h1, h2 {
     vertical-align: top;
 }
 
+h4 {
+    font-style: bold;
+}
+
+h5 {
+    font-size: 1.2em;
+    font-weight: normal;
+}
+
 hr {
     border-width: 0; 
 	height: 1px;
@@ -70,11 +79,6 @@ hr {
     margin-left: auto;
 }
 
-.header-svg {
-    width: 45px;
-    vertical-align: middle;
-}
-
 button.logo {
     background-color: transparent;
     border: none;
@@ -89,10 +93,18 @@ img.logo {
     text-align: center;
 }
 
-.sobre-o-bilhete {
+.row form {
+    margin: auto;
+}
+
+a.SobreBilhete {
     border: 1px solid black;
     margin-top: 0.2em;
     margin-bottom: 0.2em;
+}
+
+div.SobreBilhete {
+    margin: 1px;
 }
 
 .termosDeUso {
@@ -166,6 +178,9 @@ img.logo {
 }
 */
 @media screen and (max-width: 600px) {
+    button.logo {
+        margin: auto;
+    }
     .logo img {
         width: 15%;
     }
