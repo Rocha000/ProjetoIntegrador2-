@@ -103,6 +103,13 @@ a.SobreBilhete {
     margin-bottom: 0.2em;
 }
 
+button.SobreBilhete {
+    border: 1px solid black;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+    background-color: transparent;
+}
+
 div.SobreBilhete {
     margin: 1px;
 }

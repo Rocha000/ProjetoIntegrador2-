@@ -14,6 +14,9 @@ app.get("/Recarga", function(req,res){
 app.get("/GeracaoBilhete", function(req,res){
   res.sendFile(__dirname + "/GeracaoBilhete.html");
 });
+app.get("/Carrinho", function(req,res){
+  res.sendFile(__dirname + "/Carrinho.html");
+});
 
 //PARA COLOCAR NOS BOTÕES
 app.post("/", function(req,res){
@@ -24,6 +27,9 @@ app.post("/Recarga", function(req,res){
 });
 app.post("/GeracaoBilhete", function(req,res){
   res.sendFile(__dirname + "/GeracaoBilhete.html");
+});
+app.post("/Carrinho", function(req,res){
+  res.sendFile(__dirname + "/Carrinho.html");
 });
 
 app.post("/bilhetes/create/:cod", async (req,res,next)=>{
