@@ -15,17 +15,20 @@
     <title>Tela Inicial</title>
 </head>
 <body>
-
+    <!--COLOCA O HEADER-->
     <div w3-include-html="Header.html"></div>
-
+    <!--CONTAINER COM OS BOTÕES-->
     <div class="container">
         <div class="row">
+            <!--BOTÃO PARA ACESSAR A GERAÇÃO DO BILHETE-->
             <form action="/GeracaoBilhete" method="POST">
                 <button type="submit" class="default-btn" id="gerarCodigoBtn">
                     Geração do bilhete
                 </button>
             </form>
-
+            
+            <br/>
+            <!--BOTÃO PARA ACESSAR RECARGA-->
             <form action="/Recarga" method="POST">
                 <button type="submit" class="default-btn" id="gerarCodigoBtn">
                     Recarga
@@ -33,7 +36,7 @@
             </form>
         </div>
     </div>
-
+    <!--COLOCA O FOOTER-->
     <div w3-include-html="Footer.html"></div>
 
     <script>

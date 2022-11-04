@@ -14,26 +14,38 @@
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
 </head>
 <body>
-    <div class="row">
-
-        <div class="col-md-4 footerLinks-left">
-            <form action="\Carrinho" method="POST">
-                <button type="submit" class="footerLinks"><u>Contato</u></button>
-            </form>
+    <!--POSTERIORMENTE FAZER FORMULÁRIO DE CONTATO (ESTUDAR MELHOR COMO FAZ EM JAVA E HTML)-->
+    <!--
+        <div class="form-group contato">
         </div>
-
-        <div class="col-md-4 footerLinks-middle">
-            <form action="\Recarga" method="POST">
-                <button type="submit" class="footerLinks"><u>Sobre nós</u></button>
-            </form>
-        </div>
-
-        <div class="col-md-4 footerLinks-right">
-            <form action="\GeracaoBilhete" method="POST">
-                <button type="submit" class="footerLinks"><u>Política de Privacidade</u></button>
-            </form>
-        </div>
+    -->
+    <div class="row footer">
+        <!--FORMS PARA OS BOTÕES-->
+        <form id="Contato" class="footerLinks"></form>
+        <form id="SobreNos" action="\Recarga" method="POST" class="footerLinks"></form>
+        <form id="PolPriv" action="\GeracaoBilhete" method="POST" class="footerLinks"></form>
+        <!--BOTÕES PARA RODAPÉ-->
+        <button type="submit" class="footerButtons" form="Contato" formaction="mailto:luan.mmpt@puccampinas.edu.br"><u>Contato</u></button>
+        <button type="submit" class="footerButtons" form="SobreNos"><u>Sobre nós</u></button>
+        <button type="submit" class="footerButtons" form="PolPriv"><u>Política de Privacidade</u></button>
         
     </div>
 </body>
 </html>
+<!--
+    <div class="row">
+
+        <form action="\Carrinho" method="POST" class="col-md-4 footerLinks-left">
+            <button type="submit" class="footerLinks"><u>Contato</u></button>
+        </form>
+
+        <form action="\Recarga" method="POST" class="col-md-4 footerLinks-middle">
+            <button type="submit" class="footerLinks"><u>Sobre nós</u></button>
+        </form>
+
+        <form action="\GeracaoBilhete" method="POST" class="col-md-4 footerLinks-right">
+            <button type="submit" class="footerLinks"><u>Política de Privacidade</u></button>
+        </form>
+        
+    </div>
+-->

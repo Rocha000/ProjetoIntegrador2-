@@ -78,18 +78,23 @@ hr {
     display: block;
     margin-left: auto;
 }
-button.footerLinks {
+
+.footerButtons {
     border: none;
     background-color: transparent;
+    margin-left: 0px;
+    margin-right: 0px;
 }
-.footerLinks-left {
-    text-align: right;
+
+.footerLinks {
+    width: fit-content;
 }
-.footerLinks-middle {
-    text-align: center;
-}
-.footerLinks-right {
-    text-align: left;
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
 
 button.logo {
