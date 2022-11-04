@@ -15,11 +15,9 @@
     <title>Tela Inicial</title>
 </head>
 <body>
-    <form action="/" method="POST">
-        <button type="submit" class="logo">
-            <img src="images/logocomletra_branco.png" class="logo">
-        </button>
-    </form>
+
+    <div w3-include-html="Header.html"></div>
+
     <div class="container">
         <div class="row">
             <form action="/GeracaoBilhete" method="POST">
@@ -27,6 +25,7 @@
                     Geração do bilhete
                 </button>
             </form>
+
             <form action="/Recarga" method="POST">
                 <button type="submit" class="default-btn" id="gerarCodigoBtn">
                     Recarga
@@ -34,5 +33,12 @@
             </form>
         </div>
     </div>
+
+    <div w3-include-html="Footer.html"></div>
+
+    <script>
+        includeHTML();
+    </script>
+
 </body>
 </html>

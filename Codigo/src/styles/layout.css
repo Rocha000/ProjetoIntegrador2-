@@ -78,6 +78,19 @@ hr {
     display: block;
     margin-left: auto;
 }
+button.footerLinks {
+    border: none;
+    background-color: transparent;
+}
+.footerLinks-left {
+    text-align: right;
+}
+.footerLinks-middle {
+    text-align: center;
+}
+.footerLinks-right {
+    text-align: left;
+}
 
 button.logo {
     background-color: transparent;
@@ -91,6 +104,7 @@ img.logo {
 
 .row {
     text-align: center;
+    width: 100%;
 }
 
 .row form {

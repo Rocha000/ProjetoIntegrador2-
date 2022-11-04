@@ -15,11 +15,9 @@
     <title>Geração do Bilhete</title>
 </head>
 <body>
-    <form action="/" method="POST">
-        <button type="submit" class="logo">
-            <img src="images/logocomletra_branco.png" class="logo">
-        </button>
-    </form>
+
+    <div w3-include-html="Header.html"></div>
+
     <div class="container">
         <div class="row">
             <div class="aceiteTermosDeUso">
@@ -33,6 +31,7 @@
             <label type="text" id="res" name="res" class="codigoGerado"></label>
         </div>
     </div>
+
     <div id="abrirModal" class="termosDeUso">
         <figure>
             <a href="#" class="close"></a>
@@ -42,5 +41,10 @@
             </figcaption>
         </figure>
     </div>
+
+    <script>
+        includeHTML();
+    </script>
+    
 </body>
 </html>
