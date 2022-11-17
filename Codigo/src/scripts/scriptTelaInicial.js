@@ -56,5 +56,15 @@ function SobreNos () {
   });
 }
 
+async function gerarRecarga (tipo,valor) {
+    
+    const cod = document.getElementById('codDigitado').value 
+    
+    await fetch(`http://localhost:8081/codrecarga/create/${cod}/${tipo}/${valor}`,{method:"POST"}).catch(console.log(res))
+}
+
+
+
 module.exports = gerarCodigo();
 module.exports = includeHTML();
+module.exports = gerarRecarga();
