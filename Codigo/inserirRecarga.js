@@ -12,7 +12,7 @@ module.exports = async function inserirRecarga(codigo,tipoRecarga,valor) {
   
         let result = await connection.execute(
             'insert into recarga (FK_CODIGO_BILHETE,VALOR_BILHETE, data_recarga,tipo_recarga) values(:id,:id, sysdate,:id)',
-            [codigo],[valor],[tipoRecarga],
+            [codigo, valor, tipoRecarga],
             { autoCommit: true }
         );
         console.log("Linhas Inseridas com Sucesso: " + result.rowsAffected);

@@ -60,8 +60,16 @@ hr {
     color: black;
 }
 
+.codigoBilhete {
+    color: black;
+}
+
 .codigoGerado {
     margin-top: 1em;
+}
+
+.container {
+    text-align: center;
 }
 
 .default-btn {
