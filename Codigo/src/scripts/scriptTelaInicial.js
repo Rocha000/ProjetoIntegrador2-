@@ -56,8 +56,11 @@ function SobreNos () {
   });
 }
 
-async function gerarRecarga (tipo,valor) {
-    
+async function gerarRecarga (aceite,tipo,valor) {
+    if (document.getElementById(aceite).checked == false) {
+        document.getElementById("seila").textContent = "Você precisa aceitar os termos de uso!";
+        return null;
+    }
     const cod = document.getElementById('codigoBilhete').value 
     
     await fetch(`http://localhost:8081/codrecarga/create/${cod}/${tipo}/${valor}`,{method:"POST"}).catch(console.log(res))
