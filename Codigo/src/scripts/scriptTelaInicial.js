@@ -58,7 +58,7 @@ function SobreNos () {
 
 async function gerarRecarga (tipo,valor) {
     
-    const cod = document.getElementById('codDigitado').value 
+    const cod = document.getElementById('codigoBilhete').value 
     
     await fetch(`http://localhost:8081/codrecarga/create/${cod}/${tipo}/${valor}`,{method:"POST"}).catch(console.log(res))
 }

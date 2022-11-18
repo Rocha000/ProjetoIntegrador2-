@@ -18,6 +18,9 @@
 
     <div w3-include-html="Header.html"></div>
 
+    <div>
+        <input type="text" name="codigoBilhete" id="codigoBilhete"/>
+    </div>
     <div class="galeriaBilhetes">
 
         <div class="bilhetes">
@@ -28,13 +31,9 @@
             </div>
             <form action="/carrinho" method="POST">
                 <button type="button" class="btn SobreBilhete" data-toggle="collapse" data-target="#bilhete1">Saiba mais</button>
-<<<<<<< Updated upstream
-                <button type="submit" class="btn SobreBilhete">comprar</button>
-=======
-                <button type="submit" class="btn SobreBilhete" onclick="gerarRecarga()">
-                    comprar
+                <button type="submit" class="btn SobreBilhete" onclick="gerarRecarga('unico',5)">
+                    Recarregar
                 </button>
->>>>>>> Stashed changes
             </form>
         </div>
 
@@ -46,7 +45,7 @@
             </div>
             <form action="/carrinho" method="POST">
                 <button type="button" class="btn SobreBilhete" data-toggle="collapse" data-target="#bilhete2">Saiba mais</button>
-                <button type="submit" class="btn SobreBilhete">comprar</button>
+                <button type="submit" class="btn SobreBilhete" onclick="gerarRecarga('duplo',9.5)">Recarregar</button>
             </form>
         </div>
 
@@ -58,13 +57,9 @@
             </div>
             <form action="/carrinho" method="POST">
                 <button type="button" class="btn SobreBilhete" data-toggle="collapse" data-target="#bilhete7">Saiba mais</button>
-<<<<<<< Updated upstream
-                <button type="submit" class="btn SobreBilhete">comprar</button>
-=======
-                <button type="submit" class="btn SobreBilhete" onclick="gerarRecarga('bilhete7',30)">
-                    comprar
+                <button type="submit" class="btn SobreBilhete" onclick="gerarRecarga('7dias',30)">
+                    Recarregar
                 </button>
->>>>>>> Stashed changes
             </form>
         </div>
 
@@ -76,7 +71,7 @@
             </div>
             <form action="/carrinho" method="POST">
                 <button type="button" class="btn SobreBilhete" data-toggle="collapse" data-target="#bilhete30">Saiba mais</button>
-                <button type="submit" class="btn SobreBilhete">comprar</button>
+                <button type="submit" class="btn SobreBilhete" onclick="gerarRecarga('30dias',130)">Recarregar</button>
             </form>
         </div>
     </div>
