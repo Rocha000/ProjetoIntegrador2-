@@ -68,6 +68,73 @@ hr {
     text-align: center;
 }
 
+.dadosRecarga {
+    display: none;
+}
+  
+/* dadosRecarga aberto */
+.dadosRecarga:target {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 2em;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: justify;
+    overflow: hidden;
+    background-color: rgba(161, 161, 161, 0.274);
+}
+
+/* Conteúdo da dadosRecarga */
+.dadosRecarga figcaption {
+    width: 40%;
+    height: 80%;
+    position: relative;
+    margin: auto;
+    justify-content: center;
+    padding: 1em;
+    background-color: white;
+    overflow-y: scroll;
+    color: black;
+    box-shadow: 1px 1px 2px lightgray;
+}
+  
+  /* Botão fechar */
+.dadosRecarga .close {
+    position: relative;
+    display: block;
+}
+  
+.dadosRecarga .close::after {
+    right: -1rem;
+    top: -1rem;
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    display: flex;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    border-radius: 50%;
+    color: white;
+    content: "×";
+    cursor: pointer;
+}
+  
+  /* dadosRecarga overlay */
+.dadosRecarga .close::before {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    content: "";
+    cursor: default;
+}
+
 .default-btn {
     border: 0px gray;
     border-radius: 10px;
