@@ -27,9 +27,6 @@ app.post("/Recarga", function(req,res){
 app.post("/GeracaoBilhete", function(req,res){
   res.sendFile(__dirname + "/GeracaoBilhete.html");
 });
-app.post("/carrinho", function(req,res){
-  res.sendFile(__dirname + "/Carrinho.html");
-});
 
 app.post("/bilhetes/create/:cod", async (req,res,next)=>{
   await inserirCod(req.params.cod);
