@@ -87,10 +87,15 @@ hr {
     background-color: rgba(161, 161, 161, 0.274);
 }
 
+.dadosRecarga::after {
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+}
+
 /* Conteúdo da dadosRecarga */
 .dadosRecarga figcaption {
-    width: 40%;
-    height: 80%;
+    width: 50%;
+    height: 75%;
     position: relative;
     margin: auto;
     justify-content: center;
