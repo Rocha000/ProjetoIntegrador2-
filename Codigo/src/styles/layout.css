@@ -1,5 +1,5 @@
 html {
-    background-image: url("../images/plano_de_fundo_estacao.jpg");
+    background-image: url("../images/plano_de_fundo_estacao_original_com_blur.jpg");
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
@@ -153,17 +153,7 @@ hr {
 .galeriaBilhetes {
     display: block;
     margin-left: auto;
-}
-
-.footerButtons {
-    border: none;
-    background-color: transparent;
-    margin-left: 0px;
-    margin-right: 0px;
-}
-
-.footerLinks {
-    width: fit-content;
+    
 }
 
 .footer {
@@ -171,6 +161,24 @@ hr {
     left: 0;
     bottom: 0;
     width: 100%;
+}
+
+.headerButton {
+    border: none;
+    background-color: transparent;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.headerButtons {
+    position: absolute;
+    top: 2em;
+    right: 16px;
+    font-size: 18px;
+}
+
+.headerLogo {
+    margin-right: 0px;
 }
 
 button.logo {
@@ -206,7 +214,7 @@ button.SobreBilhete {
 }
 
 div.SobreBilhete {
-    margin: 1px;
+    margin: 0.5em;
 }
 
 .termosDeUso {
