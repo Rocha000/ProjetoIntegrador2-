@@ -17,10 +17,35 @@
 <body>
     <!--COLOCA O HEADER-->
     <div w3-include-html="Header.html" class="header"></div>
+    <img src="images/plano_de_fundo_estacao_cortado.jpg" class="imagemTelaInicial">
     <form id="recarga" action="/Recarga" method="POST"></form>
     <form id ="geracaoBilhete" action="/GeracaoBilhete" method="POST"></form>
     <!--CONTAINER COM OS BOTÕES-->
-    <div class="row">
+    <div class="barraInicial">
+        <!--BOTÃO PARA ACESSAR A GERAÇÃO DO BILHETE-->
+        <button type="submit" class="default-btn col-md-3" form="recarga">
+            GERAÇÃO DO BILHETE
+        </button>
+
+        <!--BOTÃO PARA ACESSAR RECARGA-->
+        <button type="submit" class="default-btn col-md-3" form="geracaoBilhete">
+            RECARGA
+        </button>
+
+        <!--BOTÃO PARA ACESSAR RECARGA-->
+        <button type="submit" class="default-btn col-md-3" form="geracaoBilhete">
+            UTILIZAÇÃO DO BILHETE
+        </button>
+
+        <!--BOTÃO PARA ACESSAR RECARGA-->
+        <button type="submit" class="default-btn col-md-3" form="geracaoBilhete">
+            GERENCIAMENTO DO BILHETE
+        </button>
+    </div>
+    <div class="col-md-6">
+        <img src="images/ônibus_estacionados.png">
+    </div>
+    <div class="col-md-6">
         <p>
             Sobre nós:
             Somos uma plataforma virtual para ajudar e melhorar o cotidiano de todos vocês!
@@ -35,22 +60,6 @@
                 <li>Na aba "gerenciamento" é possível verificar todo o seu histórico de recarga, nele haverá: código do bilhete, tipo da recarga, valor da recarga, data da compra da recarga e seu vencimento.</li>
             </ol>
         </p>
-        <div class="barraInicial">
-            <!--BOTÃO PARA ACESSAR A GERAÇÃO DO BILHETE-->
-            <button type="submit" class="default-btn col-md-3" form="recarga">
-                GERAÇÃO DO BILHETE
-            </button>
-    
-            <!--BOTÃO PARA ACESSAR RECARGA-->
-            <button type="submit" class="default-btn col-md-3" form="geracaoBilhete">
-                RECARGA
-            </button>
-    
-            <!--BOTÃO PARA ACESSAR RECARGA-->
-            <button type="submit" class="default-btn col-md-3" form="geracaoBilhete">
-                UTILIZAÇÃO DO BILHETE
-            </button>
-        </div>
     </div>
     <script>
         includeHTML();
