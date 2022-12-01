@@ -73,6 +73,10 @@ hr {
     margin-top: 1em;
 }
 
+.col-md-6 img {
+    width: 100%;
+}
+
 .container {
     text-align: center;
 }
@@ -175,6 +179,7 @@ hr {
     width: 100%;
     background-color: rgb(170, 170, 170);
     z-index: 2;
+    color: white;
 }
 
 .headerButton {
@@ -306,6 +311,7 @@ div.SobreBilhete {
 }
 */
 @media screen and (max-width: 600px) {
+
     button.logo {
         margin: auto;
     }
