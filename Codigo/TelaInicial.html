@@ -12,33 +12,34 @@
     <script src="inserirBD.js"></script>
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png"/>
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png"/>
-    <title>Tela Inicial</title>
+    <title>TickTicket</title>
 </head>
 <body>
     <!--COLOCA O HEADER-->
     <div w3-include-html="Header.html" class="header"></div>
+    <div class="invisibleDiv"></div>
     <img src="images/plano_de_fundo_estacao_cortado.jpg" class="imagemTelaInicial">
     <form id="recarga" action="/Recarga" method="POST"></form>
     <form id ="geracaoBilhete" action="/GeracaoBilhete" method="POST"></form>
     <!--CONTAINER COM OS BOTÕES-->
     <div class="barraInicial">
         <!--BOTÃO PARA ACESSAR A GERAÇÃO DO BILHETE-->
-        <button type="submit" class="default-btn col-md-3" form="recarga">
+        <button type="submit" class="col-md-3" form="recarga">
             GERAÇÃO DO BILHETE
         </button>
 
         <!--BOTÃO PARA ACESSAR RECARGA-->
-        <button type="submit" class="default-btn col-md-3" form="geracaoBilhete">
+        <button type="submit" class="col-md-3" form="geracaoBilhete">
             RECARGA
         </button>
 
         <!--BOTÃO PARA ACESSAR RECARGA-->
-        <button type="submit" class="default-btn col-md-3" form="geracaoBilhete">
+        <button type="submit" class="col-md-3" form="geracaoBilhete">
             UTILIZAÇÃO DO BILHETE
         </button>
 
         <!--BOTÃO PARA ACESSAR RECARGA-->
-        <button type="submit" class="default-btn col-md-3" form="geracaoBilhete">
+        <button type="submit" class="col-md-3" form="geracaoBilhete">
             GERENCIAMENTO DO BILHETE
         </button>
     </div>

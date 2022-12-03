@@ -47,6 +47,19 @@ hr {
     display: flex;
 }
 
+.barraInicial button {
+    border: 0px gray;
+    font-size: 16px;
+    background-color: transparent;
+    cursor: pointer;
+    color: white;
+}
+
+.barraInicial button:hover{
+    background-color: rgba(255, 255, 255, 0.1);
+    
+}
+
 .bilhetes {
     background-color: #CCE0FF;
     margin: 2.5%;
@@ -174,12 +187,13 @@ hr {
 }
 
 .header {
-    background-image: linear-gradient(to bottom, rgb(27, 27, 27), rgba(162, 0, 255, 0.308));
+    background-image: linear-gradient(to bottom, rgb(122, 122, 122), rgba(255, 255, 255, 0.596));
     position: fixed;
     width: 100%;
     background-color: rgb(170, 170, 170);
     z-index: 2;
-    color: white;
+    color: purple;
+    box-shadow: 0px 7px 9px -5px rgb(0 0 0 / 12%);
 }
 
 .headerButton {
@@ -200,6 +214,13 @@ hr {
     margin-right: 0px;
 }
 
+.invisibleDiv::after {
+    width: 300px;
+    content: "";
+    clear: both;
+    display: table;
+}
+
 button.logo {
     background-color: transparent;
     border: none;
@@ -207,6 +228,7 @@ button.logo {
 
 .imagemTelaInicial {
     width: 100%;
+    opacity: 85%;
 }
 
 img.logo {
