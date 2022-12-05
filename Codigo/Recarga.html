@@ -17,6 +17,7 @@
 <body>
     <!--COLOCA O HEADER-->
     <div w3-include-html="Header.html" class="header"></div>
+    <div w3-include-html="Header.html" class="header2"></div><br/>
     <div class="headerBlock" id="header-spacer"></div>
     <div class="aceiteTermosDeUso">
         <label for="codigoBilhete">Insira o código do seu bilhete:</label><br>
@@ -29,11 +30,10 @@
 
             <div class="bilhetes">
                 <h4>Bilhete único</h4>
-                <div id="bilhete1" class="collapse SobreBilhete">
+                <div class="SobreBilhete">
                     O crédito do bilhete será debitado pelo sistema. Você poderá utilizar o bilhete em qualquer e quantos transportes quiser, durante 40 minutos
                 </div>
                 <form>
-                    <a type="button" class="btn SobreBilhete" data-toggle="collapse" data-target="#bilhete1">Saiba mais</a>
                     <a type="button" class="btn SobreBilhete" onclick="gerarRecarga('TermosDeUsoRecarga','unico','5')">
                         Recarregar
                     </a>
@@ -42,11 +42,10 @@
 
             <div class="bilhetes">
                 <h4>Bilhete duplo</h4>
-                <div id="bilhete2" class="collapse SobreBilhete">
+                <div class="SobreBilhete">
                     O crédito do bilhete será debitado pelo sistema. Você poderá utilizar o bilhete em qualquer e quantos transportes quiser, durante 40 minutos, 2 vezes
                 </div>
                 <form action="/carrinho" method="POST">
-                    <button type="button" class="btn SobreBilhete" data-toggle="collapse" data-target="#bilhete2">Saiba mais</button>
                     <button type="submit" class="btn SobreBilhete" onclick="gerarRecarga('TermosDeUsoRecarga','duplo','9.5')">
                         Recarregar
                     </button>
@@ -55,11 +54,10 @@
 
             <div class="bilhetes">
                 <h4>7 dias</h4>
-                <div id="bilhete7" class="collapse SobreBilhete">
+                <div class="SobreBilhete">
                     O crédito do bilhete será debitado pelo sistema. Você poderá utilizar o bilhete em qualquer e quantos transportes quiser, durante 7 dias
                 </div>
                 <form action="/carrinho" method="POST">
-                    <button type="button" class="btn SobreBilhete" data-toggle="collapse" data-target="#bilhete7">Saiba mais</button>
                     <button type="submit" class="btn SobreBilhete" onclick="gerarRecarga('TermosDeUsoRecarga','7dias','32')">
                         Recarregar
                     </button>
@@ -68,11 +66,10 @@
 
             <div class="bilhetes">
                 <h4>30 dias</h4>
-                <div id="bilhete30" class="collapse SobreBilhete">
+                <div class="SobreBilhete">
                     O crédito do bilhete será debitado pelo sistema. Você poderá utilizar o bilhete em qualquer e quantos transportes quiser, durante 30 dias
                 </div>
                 <form action="/carrinho" method="POST">
-                    <button type="button" class="btn SobreBilhete" data-toggle="collapse" data-target="#bilhete30">Saiba mais</button>
                     <button type="submit" class="btn SobreBilhete" onclick="gerarRecarga('TermosDeUsoRecarga','30dias','125')">
                         Recarregar
                     </button>

@@ -1,5 +1,5 @@
 html {
-    background-color: rgb(167, 166, 255);
+    background-color: rgb(19, 17, 168);
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
@@ -187,13 +187,17 @@ hr {
 }
 
 .header {
-    background-image: linear-gradient(to bottom, rgb(122, 122, 122), rgba(255, 255, 255, 0.596));
+    background-image: linear-gradient(to bottom, rgb(185, 185, 185), rgba(255, 255, 255, 0.877));
     position: fixed;
     width: 100%;
     background-color: rgb(170, 170, 170);
     z-index: 2;
     color: purple;
     box-shadow: 0px 7px 9px -5px rgb(0 0 0 / 12%);
+}
+
+.header2 {
+    z-index: 1;
 }
 
 .headerButton {
@@ -264,6 +268,7 @@ div.SobreBilhete {
 
 .termosDeUso {
     display: none;
+    z-index: 3;
 }
   
 /* termosDeUso aberto */
@@ -308,7 +313,7 @@ div.SobreBilhete {
     height: 2rem;
     position: absolute;
     display: flex;
-    z-index: 1;
+    z-index: 3;
     align-items: center;
     justify-content: center;
     background-color: black;
