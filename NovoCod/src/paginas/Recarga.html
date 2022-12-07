@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/layout.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+        <link rel="icon" type="image/png" sizes="32x32" href="imagens/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="imagens/favicon-16x16.png">
+    <script src="scripts/scriptsTelaInicial.js"></script> 
+    <title>Sobre os Bilhetes</title>
+</head>
+<body>
+    <!--COLOCA O HEADER--> 
+    <div w3-include-html="Header.html" class="header"></div>
+    <br>
+    <div class="aceiteTermosDeUso">
+        <label for="codigoBilhete">Insira o código do seu bilhete:</label><br>
+        <input type="text" name="codigoBilhete" id="codigoBilhete" class="codigoBilhete"/><br>
+        <input type="checkbox" id="TermosDeUsoRecarga" value="true"/>
+        <label for="TermosDeUsoRecarga">Li e aceito os <a href="#abrirModal">termos de uso</a></label><br>
+        <label type="text" id="avisoRecarga" name="avisoRecarga" class="codigoGerado"></label> 
+    </div>
+    <div class="container">
+        <div class="galeriaBilhetes">
+            
+            <div class="bilhetes">
+                <h4>Bilhete único</h4>
+                <div class="SobreBilhete">
+                    O crédito do bilhete será debitado pelo sistema. Você poderá utilizar o bilhete em qualquer e quantos transportes quiser, durante 40 minutos
+                </div>
+                <form>
+                    <a type="button" class="btn SobreBilhete" onclick="gerarRecarga('TermosDeUsoRecarga','unico','5')">
+                        Recarregar
+                    </a>
+                </form>
+            </div>
+            
+            <div class="bilhetes">
+                <h4>Bilhete duplo</h4>
+                <div class="SobreBilhete">
+                    O crédito do bilhete será debitado pelo sistema. Você poderá utilizar o bilhete em qualquer e quantos transportes quiser, durante 40 minutos, 2 vezes
+                </div>
+                <form action="/carrinho" method="POST">
+                    <button type="submit" class="btn SobreBilhete" onclick="gerarRecarga('TermosDeUsoRecarga','duplo','9.5')">
+                        Recarregar
+                    </button>
+                </form>
+            </div>
+            
+            <div class="bilhetes">
+                <h4>7 dias</h4>
+                <div class="SobreBilhete">
+                    O crédito do bilhete será debitado pelo sistema. Você poderá utilizar o bilhete em qualquer e quantos transportes quiser, durante 7 dias
+                </div>
+                <form action="/carrinho" method="POST">
+                    <button type="submit" class="btn SobreBilhete" onclick="gerarRecarga('TermosDeUsoRecarga','7dias','32')">
+                        Recarregar
+                    </button>
+                </form>
+            </div>
+
+            <div class="bilhetes">
+                <h4>30 dias</h4>
+                <div class="SobreBilhete">
+                    O crédito do bilhete será debitado pelo sistema. Você poderá utilizar o bilhete em qualquer e quantos transportes quiser, durante 30 dias
+                </div>
+                <form action="/carrinho" method="POST">
+                    <button type="submit" class="btn SobreBilhete" onclick="gerarRecarga('TermosDeUsoRecarga','30dias','125')">
+                        Recarregar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="abrirModal" class="termosDeUso">
+        <figure>
+            <a href="#" class="close"></a>
+            <h2>Termos de uso</h2>
+            <figcaption>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, eligendi possimus. Qui consequatur enim ullam natus at. Nihil, odit eum? Molestiae saepe, voluptate voluptatum adipisci rem id optio beatae fugiat? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam voluptatum magnam porro quo fuga culpa quos delectus, quibusdam non voluptatibus ea iusto libero eligendi odit deleniti, velit sed laborum nihil? Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, voluptas mollitia fugit suscipit odit, illo voluptatibus vero rem sit est neque error et exercitationem pariatur incidunt soluta, unde laudantium modi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis nostrum quae enim distinctio itaque praesentium inventore fugiat omnis, ipsam labore soluta libero necessitatibus repudiandae dicta adipisci esse dolorum assumenda doloribus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit rerum cumque modi pariatur laudantium rem recusandae ducimus quis quod, aspernatur eaque fugiat deleniti reiciendis sequi tenetur est, error accusamus quos? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit fugiat, perferendis magnam illum sequi beatae cupiditate quas consequatur ea doloribus architecto necessitatibus, reiciendis nobis quo non animi! Itaque, fugiat ullam. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo, laudantium. Iste incidunt, modi harum tempore quidem assumenda enim eius voluptatibus repellat quisquam, autem velit. Veniam repudiandae odit earum in ipsam.
+            </figcaption>
+        </figure>
+    </div>
+    <div id="abrirRecarga" class="dadosRecarga">
+        <figure>
+            <a href="#" class="close"></a>
+            <h2>Dados da recarga</h2>
+            <figcaption>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, eligendi possimus. Qui consequatur enim ullam natus at. Nihil, odit eum? Molestiae saepe, voluptate voluptatum adipisci rem id optio beatae fugiat? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam voluptatum magnam porro quo fuga culpa quos delectus, quibusdam non voluptatibus ea iusto libero eligendi odit deleniti, velit sed laborum nihil? Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, voluptas mollitia fugit suscipit odit, illo voluptatibus vero rem sit est neque error et exercitationem pariatur incidunt soluta, unde laudantium modi! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis nostrum quae enim distinctio itaque praesentium inventore fugiat omnis, ipsam labore soluta libero necessitatibus repudiandae dicta adipisci esse dolorum assumenda doloribus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit rerum cumque modi pariatur laudantium rem recusandae ducimus quis quod, aspernatur eaque fugiat deleniti reiciendis sequi tenetur est, error accusamus quos? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit fugiat, perferendis magnam illum sequi beatae cupiditate quas consequatur ea doloribus architecto necessitatibus, reiciendis nobis quo non animi! Itaque, fugiat ullam. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo, laudantium. Iste incidunt, modi harum tempore quidem assumenda enim eius voluptatibus repellat quisquam, autem velit. Veniam repudiandae odit earum in ipsam.
+            </figcaption>
+        </figure>
+    </div>
+    
+    
+    <script>includeHTML();</script>
+</body>
+</html>
