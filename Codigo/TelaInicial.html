@@ -17,29 +17,29 @@
 <body>
     <!--COLOCA O HEADER-->
     <div w3-include-html="Header.html" class="header"></div>
-    <div class="invisibleDiv"></div>
     <img src="images/plano_de_fundo_estacao_cortado.jpg" class="imagemTelaInicial">
     <form id="recarga" action="/Recarga" method="POST"></form>
     <form id ="geracaoBilhete" action="/GeracaoBilhete" method="POST"></form>
+    <form id ="gerenciamentoBilhete" action="/GerenciamentoBilhete" method="POST"></form>
     <!--CONTAINER COM OS BOTÕES-->
     <div class="barraInicial">
         <!--BOTÃO PARA ACESSAR A GERAÇÃO DO BILHETE-->
-        <button type="submit" class="col-md-3" form="recarga">
+        <button type="submit" class="col-md-3" form="geracaoBilhete">
             GERAÇÃO DO BILHETE
         </button>
 
         <!--BOTÃO PARA ACESSAR RECARGA-->
-        <button type="submit" class="col-md-3" form="geracaoBilhete">
+        <button type="submit" class="col-md-3" form="recarga">
             RECARGA
         </button>
 
         <!--BOTÃO PARA ACESSAR RECARGA-->
-        <button type="submit" class="col-md-3" form="geracaoBilhete">
+        <button type="submit" class="col-md-3" form="gerenciamentoBilhete">
             UTILIZAÇÃO DO BILHETE
         </button>
 
         <!--BOTÃO PARA ACESSAR RECARGA-->
-        <button type="submit" class="col-md-3" form="geracaoBilhete">
+        <button type="submit" class="col-md-3" form="gerenciamentoBilhete">
             GERENCIAMENTO DO BILHETE
         </button>
     </div>
@@ -62,9 +62,7 @@
             </ol>
         </p>
     </div>
-    <script>
-        includeHTML();
-    </script>
+    <script>includeHTML();</script>
 
 </body>
 </html>

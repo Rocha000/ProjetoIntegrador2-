@@ -15,6 +15,9 @@ app.get("/Recarga", function(req,res){
 app.get("/GeracaoBilhete", function(req,res){
   res.sendFile(__dirname + "/GeracaoBilhete.html");
 });
+app.get("/GerenciamentoBilhete", function(req,res){
+  res.sendFile(__dirname + "/GerenciamentoBilhete.html");
+});
 
 
 //PARA COLOCAR NOS BOTÕES
@@ -26,6 +29,9 @@ app.post("/Recarga", function(req,res){
 });
 app.post("/GeracaoBilhete", function(req,res){
   res.sendFile(__dirname + "/GeracaoBilhete.html");
+});
+app.post("/GerenciamentoBilhete", function(req,res){
+  res.sendFile(__dirname + "/GerenciamentoBilhete.html");
 });
 
 app.post("/bilhetes/create/:cod", async (req,res,next)=>{

@@ -1,5 +1,5 @@
 html {
-    background-color: rgb(19, 17, 168);
+    background-image: linear-gradient(to bottom right, rgb(0, 13, 129), rgb(70, 0, 128));
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
@@ -10,7 +10,7 @@ body {
     background: inherit;
     padding: 0;
     margin: 0;
-    color: black;
+    color: white;
     text-align: justify;
 }
 
@@ -75,6 +75,11 @@ hr {
 
 .btn {
     color: black;
+}
+
+.gerarBilhete {
+    border-radius: 10px;
+    background-color: white;
 }
 
 .codigoBilhete {
@@ -188,16 +193,9 @@ hr {
 
 .header {
     background-image: linear-gradient(to bottom, rgb(185, 185, 185), rgba(255, 255, 255, 0.877));
-    position: fixed;
     width: 100%;
-    background-color: rgb(170, 170, 170);
-    z-index: 2;
     color: purple;
     box-shadow: 0px 7px 9px -5px rgb(0 0 0 / 12%);
-}
-
-.header2 {
-    z-index: 1;
 }
 
 .headerButton {
