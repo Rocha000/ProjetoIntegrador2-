@@ -62,8 +62,6 @@ async function gerarRecarga (aceite,tipo,valor) {
         document.getElementById("avisoRecarga").textContent = "Recarga efetuada!";
         await fetch(`http://localhost:8080/codrecarga/create/${cod}/${tipo}/${valor}`,{method:"POST"}).catch(console.log(res))
     }
-   
-    
 }
 module.exports = gerarCodigo(); 
 module.exports = gerarRecarga();

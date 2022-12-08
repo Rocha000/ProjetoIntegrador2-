@@ -1,5 +1,5 @@
 html {
-    background-image: linear-gradient(to bottom right, rgb(0, 13, 129), rgb(70, 0, 128));
+    background-image: linear-gradient(to bottom right, rgb(0, 140, 255), rgb(0, 144, 211));
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
@@ -42,7 +42,7 @@ hr {
 }
 
 .barraInicial {
-    background-image: linear-gradient(to top, rgb(120, 118, 250) 90%, transparent);
+    background-image: linear-gradient(to bottom, rgb(120, 118, 250) 90%, transparent);
     height: 100px;
     display: flex;
     margin-bottom: 1em;
@@ -79,11 +79,6 @@ hr {
     color: black;
 }
 
-.gerarBilhete {
-    border-radius: 10px;
-    background-color: white;
-}
-
 .codigoBilhete {
     color: black;
     text-align: center;
@@ -95,6 +90,7 @@ hr {
 
 .col-md-6 img {
     width: 100%;
+    border-style: solid black;
 }
 
 .container {
@@ -186,6 +182,11 @@ hr {
     color: white;
 }
 
+.gerarBilhete {
+    border-radius: 10px;
+    background-color: white;
+}
+
 .galeriaBilhetes {
     margin-left: auto;
 }
@@ -198,7 +199,7 @@ hr {
 }
 
 .header {
-    background-image: linear-gradient(to bottom, rgb(185, 185, 185), rgb(94, 94, 94));
+    background-image: linear-gradient(to bottom, rgb(226, 226, 226), rgb(165, 165, 165));
     width: 100%;
     color: black;
     z-index: 2;
@@ -274,6 +275,31 @@ button.SobreBilhete {
 
 div.SobreBilhete {
     margin: 0.5em;
+}
+
+.tabelaGerBilhete {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding-top: 8em;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: justify;
+    overflow: hidden;
+}
+.tabelaGerBilhete figcaption {
+    width: 80%;
+    height: 70%;
+    position: relative;
+    margin: auto;
+    justify-content: center;
+    padding: 1em;
+    background-color: white;
+    overflow-y: scroll;
+    color: black;
+    box-shadow: 1px 1px 2px lightgray;
 }
 
 .telaInicial {
