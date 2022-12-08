@@ -1,4 +1,5 @@
 const select = require('../../controle/select');
+require('../../controle/executarBD');
 
 
 
@@ -46,23 +47,70 @@ function includeHTML() {
 
 
 async function gerarRecarga (aceite,tipo,valor) {
-    if (document.getElementById(aceite).checked == false) {
-        document.getElementById("avisoRecarga").textContent = "Você precisa aceitar os termos de uso!";
-        return null;
-    }
-    const cod = JSON.stringify(document.getElementById('codigoBilhete').value);
-    console.log(cod)
-    let bilhete;
-    bilhete = await select(cod);
-    console.log(bilhete);
-    if (bilhete == 0){
-        document.getElementById("avisoRecarga").textContent = "invalido!";
-        return null;
-    }else{
-        document.getElementById("avisoRecarga").textContent = "Recarga efetuada!";
-        await fetch(`http://localhost:8080/codrecarga/create/${cod}/${tipo}/${valor}`,{method:"POST"}).catch(console.log(res))
+    try{
+        if (document.getElementById(aceite).checked == false) {
+            document.getElementById("avisoRecarga").textContent = "Você precisa aceitar os termos de uso!";
+            return null;
+        }
+        const cod = document.getElementById('codigoBilhete').value;
+        document.getElementById("avisoRecarga").textContent = "";
+        const response = await fetch(`http://localhost:8080/codrecarga/create/${cod}/${tipo}/${valor}`,{method:"POST"}).then((existe)=> existe.json());
+        const data = response.COUNT
+        if (data == 1){
+            document.getElementById("avisoRecarga").innerHTML = "Recarga efetuada!";
+        }else{
+            document.getElementById("avisoRecarga").innerHTML = "cod invalido!";
+        }  
+    }catch(error){
+        console.log(error);
     }
 }
+
+
+//utilização
+
+function formatarData (data) {
+    var dataString = data.getDate()  + "/" + (data.getMonth()+1) + "/" + data.getFullYear() + " " +
+    data.getHours() + ":" + data.getMinutes() + ":" + data.getSeconds();
+    return dataString;
+  }
+  
+function addHoursToDate(dateObj,intHour){
+    var numberOfM1Seconds = dateObj.getTime();
+    var addMlSeconds = (intHour * 60) * 60 * 1000;
+    var newDateObj = new Date(numberOfM1Seconds + addMlSeconds);
+  
+    return newDateObj;
+  }
+
+
+
+
+async function utilizacao(codigo, tipo){
+    var tempo;
+    var data = new Date(); 
+    switch (tipo){
+        case 'unico':
+            tempo = 0.667
+        case 'duplo':
+            tempo = 0.667;
+        case '7dias':
+            tempo = 168;
+        case '30dias':
+            tempo = 720;
+    }  
+    var dataGeracao = formatarData(data);
+    var dataExpiracao = formatarData(addHoursToDate(data,tempo));
+    await fetch(`http://localhost:8080/utilizacao/create/${codigo}/${tipo}/${dataGeracao}/${dataExpiracao}`,{method:"POST"});
+
+
+}
+
+
+
+
+
+
 module.exports = gerarCodigo(); 
 module.exports = gerarRecarga();
 module.exports = includeHTML();
