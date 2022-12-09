@@ -18,21 +18,13 @@ a {
     color: lightblue;
 }
 
-h1, h2 {
+h1, h2, h3 {
     text-align: center;
     vertical-align: top;
 }
 
 h4 {
     font-style: bold;
-}
-
-hr {
-    border-width: 0; 
-	height: 1px;
-	border-top-width: 1px;
-    height: 1%;
-    border-color: darkgray;
 }
 
 .aceiteTermosDeUso {
@@ -115,7 +107,7 @@ hr {
 }
 
 .corpo {
-    padding-top: 6em;
+    padding-top: 4em;
 }
 
 .dadosRecarga {
@@ -210,13 +202,15 @@ hr {
 
 .footer {
     position: fixed;
+    text-align: center;
     left: 0;
     bottom: 0;
     width: 100%;
+    background-color: rgb(47, 161, 255);
 }
 
 .header {
-    background-color: white;
+    background-color: rgb(47, 161, 255);
     width: 100%;
     color: black;
     z-index: 2;
@@ -237,20 +231,20 @@ hr {
 
 .headerButtons {
     position: absolute;
-    top: 2em;
+    top: 1.25em;
     right: 16px;
     font-size: 18px;
+    margin: auto;
+    margin-bottom: 10px;
 }
 
 .headerLogo {
     margin-right: 0px;
 }
 
-.invisibleDiv::after {
-    width: 300px;
-    content: "";
-    clear: both;
-    display: table;
+.home {
+    background-color: white;
+    color: black;
 }
 
 button.logo {
@@ -328,8 +322,6 @@ div.SobreBilhete {
     display: none;
     z-index: 3;
 }
-  
-/* termosDeUso aberto */
 .termosDeUso:target {
     position: absolute;
     left: 0;
@@ -343,8 +335,6 @@ div.SobreBilhete {
     overflow: hidden;
     background-color: rgba(161, 161, 161, 0.274);
 }
-
-/* Conteúdo da termosDeUso */
 .termosDeUso figcaption {
     width: 40%;
     height: 80%;

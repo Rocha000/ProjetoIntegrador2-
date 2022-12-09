@@ -23,6 +23,9 @@
                 <label for="codigoBilhete">Insira o código do bilhete urbano:</label>
                 <br>
                 <input type="text" name="codigoBilhete" id="codigoBilhete"/>
+                <a type="button" class="btn SobreBilhete" id="UtilizarBtn">
+                    UTILIZAR
+                </a>
             </div>
         </div>
         <div class="col-md-6">
@@ -33,7 +36,46 @@
                 <input type="text" name="recarga" id="recarga" disabled/>
             </div>
         </div>
+        <br>
+
+        <div>
+            <br>
+            <div class="utilizaBilhete">
+                <h3>Regras da Utilização do Bilhete</h3>
+            </div>
+            <br>
+            <div class="bilhetes">
+                <h4>Bilhete único</h4>
+                <div class="SobreBilhete">
+                    O crédito do bilhete será debitado pelo sistema. Você poderá utilizar o bilhete em qualquer e quantos transportes quiser, durante 40 minutos
+                </div>
+            </div>
+            
+            <div class="bilhetes">
+                <h4>Bilhete duplo</h4>
+                <div class="SobreBilhete">
+                    O crédito do bilhete será debitado pelo sistema. Você poderá utilizar o bilhete em qualquer e quantos transportes quiser, durante 40 minutos, 2 vezes
+                </div>
+               
+            </div>
+            
+            <div class="bilhetes">
+                <h4>7 dias</h4>
+                <div class="SobreBilhete">
+                    O crédito do bilhete será debitado pelo sistema. Você poderá utilizar o bilhete em qualquer e quantos transportes quiser, durante 7 dias
+                </div>
+            </div>
+
+            <div class="bilhetes">
+                <h4>30 dias</h4>
+                <div class="SobreBilhete">
+                    O crédito do bilhete será debitado pelo sistema. Você poderá utilizar o bilhete em qualquer e quantos transportes quiser, durante 30 dias
+                </div>
+        </div>
     </div>
+    <!--COLOCA O FOOTER-->
+    <div w3-include-html="Footer.html" class="footer"></div>
+    
     <script>includeHTML();</script>
 </body>
 </html>
