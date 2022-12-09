@@ -59,7 +59,7 @@ async function gerarRecarga (aceite,tipo,valor) {
         if (data == 1){
             document.getElementById("avisoRecarga").innerHTML = "Recarga efetuada!";
         }else{
-            document.getElementById("avisoRecarga").innerHTML = "cod invalido!";
+            document.getElementById("avisoRecarga").innerHTML = "código invalido!";
         }  
     }catch(error){
         console.log(error);

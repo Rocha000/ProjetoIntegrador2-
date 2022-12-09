@@ -1,5 +1,5 @@
 html {
-    background-color: #fffafa;
+    background-color: #ececec;
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
@@ -42,11 +42,10 @@ hr {
 }
 
 .barraInicial {
-    background-image: linear-gradient(to bottom, rgb(120, 118, 250) 90%, transparent);
+    background-image: linear-gradient(to bottom, rgb(4, 1, 197) 85%, rgba(4, 1, 197, 0.25));
     height: 100px;
     display: flex;
     margin-bottom: 1em;
-    margin-top: 1em;
 }
 
 .barraInicial button {
@@ -58,7 +57,7 @@ hr {
 }
 
 .barraInicial button:hover{
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 80%, transparent);
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 75%, transparent);
     
 }
 
@@ -217,7 +216,7 @@ hr {
 }
 
 .header {
-    background-image: linear-gradient(to bottom, rgb(226, 226, 226), rgb(165, 165, 165));
+    background-color: white;
     width: 100%;
     color: black;
     z-index: 2;
@@ -321,7 +320,8 @@ div.SobreBilhete {
 }
 
 .telaInicial {
-    padding-top: 6em;
+    margin-left: 5em;
+    margin-right: 5em;
 }
 
 .termosDeUso {

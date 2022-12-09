@@ -17,10 +17,13 @@ app.get("/GeracaoBilhete", function(req,res){
     res.sendFile(__dirname + "/src/paginas/GeracaoBilhete.html");
 });
 app.get("/GerenciamentoBilhete", function(req,res){
-    res.sendFile(__dirname + "/GerenciamentoBilhete.html");
+    res.sendFile(__dirname + "/src/paginas/GerenciamentoBilhete.html");
+});
+app.get("/UtilizacaoBilhete", function(req,res){
+    res.sendFile(__dirname + "/src/paginas/UtilizacaoBilhete.html");
 });
 
-
+//PARA ACESSAR PELO BOTÃO
 app.post("/", function(req,res){
     res.sendFile(__dirname + "/src/paginas/TelaInicial.html");
 });
@@ -29,6 +32,12 @@ app.post("/Recarga", function(req,res){
 });
 app.post("/GeracaoBilhete", function(req,res){
     res.sendFile(__dirname + "/src/paginas/GeracaoBilhete.html");
+});
+app.post("/GerenciamentoBilhete", function(req,res){
+    res.sendFile(__dirname + "/src/paginas/GerenciamentoBilhete.html");
+});
+app.post("/UtilizacaoBilhete", function(req,res){
+    res.sendFile(__dirname + "/src/paginas/UtilizacaoBilhete.html");
 });
   
 app.post("/bilhetes/create/:cod", async (req,res,next)=>{
