@@ -83,6 +83,7 @@ h4 {
     background-color: lightgray;
     text-align: center;
     margin-top: 1em;
+    margin-bottom: 1em;
     border: 1px solid gray;
 }
 
@@ -265,6 +266,7 @@ img.logo {
 .row {
     text-align: center;
     width: 100%;
+    margin-top: 4em;
 }
 
 .row form {
@@ -292,30 +294,22 @@ div.SobreBilhete {
     position: absolute;
     left: 0;
     top: 0;
-    padding-top: 8em;
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: center;
     text-align: justify;
     overflow: hidden;
 }
-.tabelaGerBilhete figcaption {
+.tabelaGerBilhete table {
     width: 80%;
     height: 70%;
     position: relative;
     margin: auto;
-    justify-content: center;
     padding: 1em;
     background-color: white;
     overflow-y: scroll;
     color: black;
     box-shadow: 1px 1px 2px lightgray;
-}
-
-.telaInicial {
-    margin-left: 5em;
-    margin-right: 5em;
 }
 
 .termosDeUso {
@@ -347,13 +341,10 @@ div.SobreBilhete {
     color: black;
     box-shadow: 1px 1px 2px lightgray;
 }
-  
-  /* Botão fechar */
 .termosDeUso .close {
     position: relative;
     display: block;
 }
-  
 .termosDeUso .close::after {
     right: -1rem;
     top: -1rem;
@@ -370,8 +361,6 @@ div.SobreBilhete {
     content: "×";
     cursor: pointer;
 }
-  
-  /* termosDeUso overlay */
 .termosDeUso .close::before {
     left: 0;
     top: 0;
@@ -380,6 +369,11 @@ div.SobreBilhete {
     position: fixed;
     content: "";
     cursor: default;
+}
+
+.utilizacaoBilhete{
+    margin-top: 4em;
+    border-top: 4em;
 }
 /*
 @media screen and (max-width: 920px) {
