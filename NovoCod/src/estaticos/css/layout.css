@@ -95,7 +95,7 @@ th, td {
     font-size: 16px;
 }
 
-.codigosUt input {
+.codigosUt input, .recarga {
     width: 50%;
     margin-top: 0.5em;
     margin-bottom: 1em;
@@ -113,78 +113,6 @@ th, td {
 
 .corpo {
     padding-top: 4em;
-}
-
-.dadosRecarga {
-    display: none;
-}
-  
-/* dadosRecarga aberto */
-.dadosRecarga:target {
-    position: absolute;
-    left: 0;
-    top: 0;
-    padding: 2em;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    text-align: justify;
-    overflow: hidden;
-    background-color: rgba(161, 161, 161, 0.274);
-}
-
-.dadosRecarga::after {
-    filter: blur(3px);
-    -webkit-filter: blur(3px);
-}
-
-/* Conteúdo da dadosRecarga */
-.dadosRecarga figcaption {
-    width: 50%;
-    height: 75%;
-    position: relative;
-    margin: auto;
-    justify-content: center;
-    padding: 1em;
-    background-color: white;
-    overflow-y: scroll;
-    color: black;
-    box-shadow: 1px 1px 2px lightgray;
-}
-  
-  /* Botão fechar */
-.dadosRecarga .close {
-    position: relative;
-    display: block;
-}
-  
-.dadosRecarga .close::after {
-    right: -1rem;
-    top: -1rem;
-    width: 2rem;
-    height: 2rem;
-    position: absolute;
-    display: flex;
-    z-index: 1;
-    align-items: center;
-    justify-content: center;
-    background-color: black;
-    border-radius: 50%;
-    color: white;
-    content: "×";
-    cursor: pointer;
-}
-  
-  /* dadosRecarga overlay */
-.dadosRecarga .close::before {
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    content: "";
-    cursor: default;
 }
 
 .default-btn {
@@ -265,6 +193,10 @@ button.logo {
 img.logo {
     width: 4em;
     vertical-align: top;
+}
+
+.recarga {
+    background: transparent;
 }
 
 .row {
@@ -387,6 +319,71 @@ div.SobreBilhete {
     cursor: pointer;
 }
 .termosDeUso .close::before {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    content: "";
+    cursor: default;
+}
+
+.utilizacaoBilhete {
+    display: none;
+    z-index: 3;
+}
+.utilizacaoBilhete:target {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 2em;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: justify;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.849);
+}
+.utilizacaoBilhete h2 {
+    color: white;
+}
+.utilizacaoBilhete figcaption {
+    width: 40%;
+    height: 70%;
+    position: relative;
+    margin: auto;
+    justify-content: center;
+    padding: 1em;
+    background-color: white;
+    overflow-y: scroll;
+    font-size: 18px;
+    color: black;
+    box-shadow: 1px 1px 2px lightgray;
+    border-radius: 15px;
+}
+.utilizacaoBilhete .close {
+    position: relative;
+    display: block;
+}
+
+.utilizacaoBilhete .close::after {
+    right: -1rem;
+    top: -1rem;
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    display: flex;
+    z-index: 3;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    border-radius: 50%;
+    color: white;
+    content: "×";
+    cursor: pointer;
+}
+.utilizacaoBilhete .close::before {
     left: 0;
     top: 0;
     width: 100%;
