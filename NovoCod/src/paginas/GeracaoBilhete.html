@@ -11,22 +11,23 @@
         <script src="scripts/scriptsTelaInicial.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <title>Geração do Bilhete</title>
+    <title>TickTicket - Geração do Bilhete</title>
 </head> 
 <body>
     <!--COLOCA O HEADER-->
     <div w3-include-html="Header.html" class="header"></div>
     <div class="corpo">
-        <div class="row">
+        <div class="codigoInserido">
+            <br>
             <div class="aceiteTermosDeUso">
-                <input type="checkbox" id="aceiteTermosDeUso" value="true"/>
+                <input type="checkbox" id="aceiteTermosDeUso"/>
                 <label for="aceiteTermosDeUso">Li e aceito os <a href="#abrirModal">termos de uso</a></label>
             </div>
             <a type="button" class="btn gerarBilhete" id="gerarCodigoBtn" onclick="gerarCodigo('aceiteTermosDeUso')">
                 Gerar código
             </a>
             <br>
-            <label type="text" id="res" name="res" class="codigoGerado"></label>
+            <label type="text" id="res" name="res" class="codigoGerado">&nbsp;</label>
         </div>
     </div>
     

@@ -11,13 +11,13 @@
     <script src="scripts/scriptsTelaInicial.js"></script>
     <link rel="icon" type="image/png" sizes="32x32" href="imagens/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="imagens/favicon-16x16.png">
-    <title>Utilização do Bilhete</title>
+    <title>TickTicket - Utilização do Bilhete</title>
 </head>
 <body>
     <!--COLOCA O HEADER-->
     <div w3-include-html="Header.html" class="header"></div>
     <div class="corpo">
-        <div class="codigoInserido">
+        <div class="codigoInserido Utilizacao">
             <br>
             <label for="codigoBilhete">Insira o código do bilhete urbano:</label>
             <br>
@@ -57,7 +57,8 @@
                     </div>
 
                     <div id="invalido" class="hidden">
-                        Código inválido
+                        O seu bilhete está inválido! Certifique-se de que digitou todos os números corretamente, ou,
+                        caso ainda não tenha um bilhete, acesse <a href="/GeracaoBilhete">Geração do Bilhete</a> para criar um.
                     </div>
 
                     <div id="expirada" class="hidden">

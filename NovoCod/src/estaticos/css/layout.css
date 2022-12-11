@@ -23,6 +23,10 @@ h1, h2, h3 {
     vertical-align: top;
 }
 
+h4 {
+    text-align: center;
+}
+
 h5 {
     font-size: 16px;
 }
@@ -35,7 +39,7 @@ th, td {
     margin-bottom: 1em;
     text-align: center;
     width: 100%;
-} 
+}
 
 .barraInicial {
     background-image: linear-gradient(to bottom, rgb(4, 1, 197) 85%, rgba(4, 1, 197, 0.25));
@@ -93,6 +97,10 @@ th, td {
     margin-top: 0.5em;
     margin-bottom: 1em;
     text-align: center;
+} .codigoInserido .aceiteTermosDeUso input {
+    width: auto;
+} .codigoInserido .aceiteTermosDeUso a {
+    color: rgb(9, 0, 94);
 }
 
 .col-md-6 img {
@@ -298,6 +306,10 @@ div.SobreBilhete {
     cursor: default;
 }
 
+.Utilizacao {
+    margin-top: 10%;
+}
+
 .utilizacaoBilhete {
     display: none;
     z-index: 3;
@@ -318,6 +330,7 @@ div.SobreBilhete {
 } .utilizacaoBilhete figcaption {
     width: 40%;
     height: auto;
+    max-height: 80%;
     position: relative;
     margin: auto;
     text-align: center;

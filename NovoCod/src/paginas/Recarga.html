@@ -12,18 +12,21 @@
         <link rel="icon" type="image/png" sizes="32x32" href="imagens/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="imagens/favicon-16x16.png">
     <script src="scripts/scriptsTelaInicial.js"></script> 
-    <title>Sobre os Bilhetes</title>
+    <title>TickTicket - Recarga</title>
 </head>
 <body>
     <!--COLOCA O HEADER--> 
     <div w3-include-html="Header.html" class="header"></div>
     <br>
     <div class="corpo">
-        <div class="aceiteTermosDeUso">
+        <div class="codigoInserido">
+            <br>
             <label for="codigoBilhete">Insira o código do seu bilhete:</label><br>
-            <input type="text" name="codigoBilhete" id="codigoBilhete" class="codigoBilhete"/><br>
-            <input type="checkbox" id="TermosDeUsoRecarga" value="true"/>
-            <label for="TermosDeUsoRecarga">Li e aceito os <a href="#abrirModal">termos de uso</a></label><br>
+            <input type="number" name="codigoBilhete" id="codigoBilhete" class="codigoBilhete"/><br>
+            <div class="aceiteTermosDeUso">
+                <input type="checkbox" id="TermosDeUsoRecarga" value="true"/>
+                <label for="TermosDeUsoRecarga">Li e aceito os <a href="#abrirModal">termos de uso</a></label><br>
+            </div>
             <label type="text" id="avisoRecarga" name="avisoRecarga" class="codigoGerado">&nbsp;</label> 
         </div>
         <div class="container">
@@ -42,7 +45,7 @@
                 
                 <div class="bilhetes">
                     <h4>Bilhete duplo</h4>
-                    <h5>R$ 9,50</h5>
+                    <h5>R$ 10,00</h5>
                     <div class="SobreBilhete">   
                         O crédito do bilhete será debitado pelo sistema. Você poderá utilizar o bilhete em qualquer e quantos transportes quiser, durante 40 minutos, 2 vezes
                     </div>
