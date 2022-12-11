@@ -63,7 +63,7 @@ app.post("/codrecarga/create/:cod/:tipo/:valor/:credito", async (req,res,next)=>
 app.post('/recarga/credito/:cod', async (req, res) => {// RETORNA O CREDITO DO BILHETE DIGITADO
     const response = await runQuery('SELECT CREDITO FROM recarga WHERE fk_codigo_bilhete = :id order by data_e_hora_recarga desc',[req.params.cod]);
     const credito = response.rows[0].CREDITO
-    console.log(credito)
+    
     return res.json(credito);
 })
 
@@ -80,7 +80,7 @@ app.post('/utilizacao/confirmarRecarga/:cod', async(req,res,next)=>{//VERIFICA S
     if (dado != 0){
         return res.json(dado);
     }else{
-       return res.json(existeRecarga.rows[0]);
+       return res.json(dado);
     }
 })
 app.post('/utilizacao/create/:cod/:tempo', async(req, res, next)=>{//INSERE NA TABELA UTILIZACAO E FAZ O UPDATE DA RECARGA
@@ -88,7 +88,7 @@ app.post('/utilizacao/create/:cod/:tempo', async(req, res, next)=>{//INSERE NA T
     var dataUtilizacao = formatarData(data);
     const dataExpiracao = addHoursToDate(data,req.params.tempo);
     const dataExpiracaoFormat = formatarData(dataExpiracao);
-    var sexu = {"name": "1"};
+    var objeto = {"name": "1"};
     console.log(dataUtilizacao);
     console.log(dataExpiracaoFormat);
 
@@ -102,20 +102,21 @@ app.post('/utilizacao/create/:cod/:tempo', async(req, res, next)=>{//INSERE NA T
         await runQuery('UPDATE recarga SET CREDITO = 0 WHERE CODIGO_RECARGA = :id',[codigoRecarga]);
     }
     console.log("sexu")
-    return res.json(sexu.name);
+    return res.json(objeto.name);
 })
 
 app.post('/utilizacao/dataEx/:cod', async(req, res, next)=>{
     const dados = await runQuery('SELECT (DATA_E_HORA_EXPIRACAO)  FROM UTILIZACAO WHERE fk_codigo_bilhete = :id order by ID_UTILIZACAO desc',[req.params.cod]);
     data = new Date();
-    var sexu = {"name": "1"};
+    var objeto = {"name": "1"};
     const dataexpiracao = dados.rows[0].DATA_E_HORA_EXPIRACAO 
+    
     if(dataexpiracao - data <= 0){
-        return res.json(sexu.name);
+        return res.json(objeto.name);
 
     }else{
-        sexu = {"name": "0"}
-        return res.json(sexu.name);
+        objeto = {"name": "0"}
+        return res.json(objeto.name);
     }
     
 
@@ -133,6 +134,31 @@ function addHoursToDate(dateObj,intHour){
   
     return newDateObj;
 }
+app.post('/gerenciamento/:cod', async function (req, res) {
+    const array = [];
+    const referencia = {
+        "TIPO":"",
+        "DATA_GERACAO":"",
+        "DATA_RECARGA":"",
+        "DATA_UTILIZACAO":"",
+    }
+    const selecJoin = await runQuery("select tipo_recarga as TIPO,data_geracao as DATA_GERACAO,data_e_hora_recarga AS DATA_RECARGA,data_e_hora_expiracao as DATA_UTILIZACAO from bilhetes join recarga on bilhetes.codigo_bilhete = recarga.fk_codigo_bilhete join utilizacao on bilhetes.codigo_bilhete = utilizacao.fk_codigo_bilhete where codigo_bilhete = :id",[req.params.cod]);
+    for(i in selecJoin){
+        referencia.TIPO = selecJoin.rows[i].TIPO;
+        referencia.DATA_GERACAO = selecJoin.rows[i].DATA_GERACAO
+        referencia.DATA_RECARGA = selecJoin.rows[i].DATA_RECARGA
+        referencia.DATA_UTILIZACAO = selecJoin.rows[i].DATA_UTILIZACAO
+    }
+    
+    
+    
+    return res.json(selecJoin);
+
+})
+
+
+
+
 
 app.listen(8080, function(){
     console.log("Está no ar!");

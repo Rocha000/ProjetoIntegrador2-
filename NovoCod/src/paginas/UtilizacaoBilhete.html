@@ -4,13 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/layout.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="scripts/scriptsTelaInicial.js"></script>
-    <link rel="icon" type="image/png" sizes="32x32" href="imagens/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="imagens/favicon-16x16.png">
     <title>TickTicket - Utilização do Bilhete</title>
 </head>
 <body>
@@ -26,54 +20,21 @@
                 UTILIZAR
             </a>
         </div>
-        </div>
-        <div id="SobreBilhete" class="utilizacaoBilhete">
-            <figure>
-                <a href="#" class="close"></a>
-                <h2>Regras da Utilização do Bilhete</h2>
-                <figcaption>
-                    <div id="unico" class="hidden">
-                        <h4>Bilhete único</h4>
-                        O crédito do bilhete será debitado pelo sistema. Você poderá utilizar o bilhete em qualquer e quantos transportes quiser, durante 40 minutos
-                        <label class="labelDataEx">&nbsp;</label>
-                    </div>
-                    
-                    <div id="duplo" class="hidden">
-                        <h4>Bilhete duplo</h4>
-                        O crédito do bilhete será debitado pelo sistema. Você poderá utilizar o bilhete em qualquer e quantos transportes quiser, durante 40 minutos, 2 vezes
-                        <label class="labelDataEx">&nbsp;</label>
-                    </div>
-                    
-                    <div id="7dias" class="hidden">
-                        <h4>7 dias</h4>
-                        O crédito do bilhete será debitado pelo sistema. Você poderá utilizar o bilhete em qualquer e quantos transportes quiser, durante 7 dias
-                        <label class="labelDataEx">&nbsp;</label>
-                    </div>
+    </div>
 
-                    <div id="30dias" class="hidden">
-                        <h4>30 dias</h4>
-                        O crédito do bilhete será debitado pelo sistema. Você poderá utilizar o bilhete em qualquer e quantos transportes quiser, durante 30 dias
-                        <label class="labelDataEx">&nbsp;</label>
-                    </div>
 
-                    <div id="invalido" class="hidden">
-                        O seu bilhete está inválido! Certifique-se de que digitou todos os números corretamente, ou,
-                        caso ainda não tenha um bilhete, acesse <a href="/GeracaoBilhete">Geração do Bilhete</a> para criar um.
-                    </div>
-
-                    <div id="expirada" class="hidden">
-                        Sua recarga está expirada
-                    </div>
-
-                    <div id="semRecarga" class="hidden">
-                        Você não realizou nenhuma recarga! Vá para a <a href="/Recarga">Recarga</a> para recarregar seu bilhete
-                </figcaption>
-            </figure>
+    <div id="fade" class="hide">
+        <div id="modal" class="hide">
+            <div class="modal-header">
+                <h2 id="headerModal">Regras da Utilização do Bilhete</h2>
+                <buttom id="close-modal" onclick="closeModalButton()">X</buttom> <!--Arrumar fonte-->
+            </div>
+            <div class="modal-body">
+                <label id="faladele"></label><br>
+                <label id="infosBilhete"></label>
+            </div>
         </div>
     </div>
-    <!--COLOCA O FOOTER-->
-    <div w3-include-html="Footer.html" class="footer"></div>
-    
-    <script>includeHTML();</script>
+    <script src="scripts/scriptsTelaInicial.js"></script>
+    <script>includeHTML()</script>
 </body>
-</html>
