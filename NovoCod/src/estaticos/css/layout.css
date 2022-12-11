@@ -27,6 +27,10 @@ h4 {
     font-style: bold;
 }
 
+th, td {
+    text-align: center;
+}
+
 .aceiteTermosDeUso {
     margin-bottom: 1em;
     text-align: center;
@@ -292,24 +296,44 @@ div.SobreBilhete {
 
 .tabelaGerBilhete {
     position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    text-align: justify;
+    margin-top: 12em;
+    width: 90%;
+    height: 20em;
     overflow: hidden;
-}
-.tabelaGerBilhete table {
-    width: 80%;
-    height: 70%;
-    position: relative;
-    margin: auto;
-    padding: 1em;
+    text-align: left;
+    margin-left: 5%;
     background-color: white;
-    overflow-y: scroll;
-    color: black;
-    box-shadow: 1px 1px 2px lightgray;
+}
+.tabelaGerBilhete .cabecalho {
+    width: 90%;
+    height: 2em;
+    position: fixed;
+    background-color: white;
+    overflow-y: hidden;
+    border-bottom: 1px black solid;
+}
+.tabelaGerBilhete .cabecalho div {
+    float: left;
+    width: 20%;
+    border-left: 1px black solid;
+    border-right: 1px black solid;
+}
+.tabelaGerBilhete .linha {
+    width: 100%;
+    height: 10%;
+}
+.tabelaGerBilhete .linha div {
+    float: left;
+    width: 20%;
+    border-left: 1px black solid;
+    border-right: 1px black solid;
+}
+.tabelaGerBilhete .conteudo {
+    margin-top: 2em;
+    width: 100%;
+    height: 18em;
+    overflow: auto;
+    background-color: white;
 }
 
 .termosDeUso {
@@ -371,10 +395,7 @@ div.SobreBilhete {
     cursor: default;
 }
 
-.utilizacaoBilhete{
-    margin-top: 4em;
-    border-top: 4em;
-}
+::-webkit-scrollbar-track {background: black;}
 /*
 @media screen and (max-width: 920px) {
 }
