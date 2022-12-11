@@ -23,8 +23,8 @@ h1, h2, h3 {
     vertical-align: top;
 }
 
-h4 {
-    font-style: bold;
+h5 {
+    font-size: 16px;
 }
 
 th, td {
@@ -298,11 +298,13 @@ div.SobreBilhete {
     position: absolute;
     margin-top: 12em;
     width: 90%;
-    height: 20em;
+    height: 25em;
     overflow: hidden;
     text-align: left;
     margin-left: 5%;
     background-color: white;
+    box-shadow: 2px 2px 3px rgba(133, 133, 133, 0.664);
+    border: 1px solid white;
 }
 .tabelaGerBilhete .cabecalho {
     width: 90%;
@@ -315,8 +317,6 @@ div.SobreBilhete {
 .tabelaGerBilhete .cabecalho div {
     float: left;
     width: 20%;
-    border-left: 1px black solid;
-    border-right: 1px black solid;
 }
 .tabelaGerBilhete .linha {
     width: 100%;
@@ -325,13 +325,11 @@ div.SobreBilhete {
 .tabelaGerBilhete .linha div {
     float: left;
     width: 20%;
-    border-left: 1px black solid;
-    border-right: 1px black solid;
 }
 .tabelaGerBilhete .conteudo {
     margin-top: 2em;
     width: 100%;
-    height: 18em;
+    height: 23em;
     overflow: auto;
     background-color: white;
 }
@@ -351,7 +349,10 @@ div.SobreBilhete {
     justify-content: center;
     text-align: justify;
     overflow: hidden;
-    background-color: rgba(161, 161, 161, 0.274);
+    background-color: rgba(0, 0, 0, 0.849);
+}
+.termosDeUso h2 {
+    color: white;
 }
 .termosDeUso figcaption {
     width: 40%;
@@ -395,7 +396,6 @@ div.SobreBilhete {
     cursor: default;
 }
 
-::-webkit-scrollbar-track {background: black;}
 /*
 @media screen and (max-width: 920px) {
 }
