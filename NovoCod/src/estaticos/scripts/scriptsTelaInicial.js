@@ -2,21 +2,6 @@ const select = require('../../controle/select');
 require('../../controle/executarBD');
 
 
-
-async function gerarCodigo (aceite) {
-    if (document.getElementById(aceite).checked == false) {
-        document.getElementById("res").textContent = "Você precisa aceitar os termos de uso!";
-        return null;
-    }
-    chars = 'a123456789';
-    cod = '';
-    for (i = 0; i < 8; i++) {cod += chars.charAt(Math.floor(Math.random() * chars.length));}
-    
-    document.getElementById("res").textContent = "Seu código: " + cod;
-    console.dir(cod);
-    await fetch(`http://localhost:8080/bilhetes/create/${cod}`,{method:"POST"}).catch(console.log(res))
-}
-
 function includeHTML() {
     var z, i, elmnt, file, xhttp;
     /*loop through a collection of all HTML elements:*/
@@ -44,9 +29,21 @@ function includeHTML() {
         }
     }
 };
+async function gerarCodigo (aceite) {
+    if (document.getElementById(aceite).checked == false) {
+        document.getElementById("res").textContent = "Você precisa aceitar os termos de uso!";
+        return null;
+    }
+    chars = '123456789';
+    cod = '';
+    for (i = 0; i < 8; i++) {cod += chars.charAt(Math.floor(Math.random() * chars.length));}
+    
+    document.getElementById("res").textContent = "Seu código: " + cod;
+    console.dir(cod);
+    await fetch(`http://localhost:8080/bilhetes/create/${cod}`,{method:"POST"}).catch(console.log(res))
+}
 
-
-async function gerarRecarga (aceite,tipo,valor) {
+async function gerarRecarga (aceite,tipo,valor,credito) {
     try{
         if (document.getElementById(aceite).checked == false) {
             document.getElementById("avisoRecarga").textContent = "Você precisa aceitar os termos de uso!";
@@ -54,10 +51,11 @@ async function gerarRecarga (aceite,tipo,valor) {
         }
         const cod = document.getElementById('codigoBilhete').value;
         document.getElementById("avisoRecarga").textContent = "";
-        const response = await fetch(`http://localhost:8080/codrecarga/create/${cod}/${tipo}/${valor}`,{method:"POST"}).then((existe)=> existe.json());
+        const response = await fetch(`http://localhost:8080/verificacao/${cod}`,{method:"POST"}).then((existe)=> existe.json());
         const data = response.COUNT
         if (data == 1){
             document.getElementById("avisoRecarga").innerHTML = "Recarga efetuada!";
+            await fetch(`http://localhost:8080/codrecarga/create/${cod}/${tipo}/${valor}/${credito}`,{method:"POST"});
         }else{
             document.getElementById("avisoRecarga").innerHTML = "código invalido!";
         }  
@@ -68,12 +66,11 @@ async function gerarRecarga (aceite,tipo,valor) {
 
 
 //utilização
-
 function formatarData (data) {
     var dataString = data.getDate()  + "/" + (data.getMonth()+1) + "/" + data.getFullYear() + " " +
     data.getHours() + ":" + data.getMinutes() + ":" + data.getSeconds();
     return dataString;
-  }
+}
   
 function addHoursToDate(dateObj,intHour){
     var numberOfM1Seconds = dateObj.getTime();
@@ -81,27 +78,73 @@ function addHoursToDate(dateObj,intHour){
     var newDateObj = new Date(numberOfM1Seconds + addMlSeconds);
   
     return newDateObj;
-  }
+}
 
 
 
 
-async function utilizacao(codigo, tipo){
+
+async function utilizacao(){
     var tempo;
-    var data = new Date(); 
-    switch (tipo){
-        case 'unico':
-            tempo = 0.667
-        case 'duplo':
-            tempo = 0.667;
-        case '7dias':
-            tempo = 168;
-        case '30dias':
-            tempo = 720;
-    }  
-    var dataGeracao = formatarData(data);
-    var dataExpiracao = formatarData(addHoursToDate(data,tempo));
-    await fetch(`http://localhost:8080/utilizacao/create/${codigo}/${tipo}/${dataGeracao}/${dataExpiracao}`,{method:"POST"});
+    var data = new Date()
+    
+    const cod = document.getElementById('codigoBilhete').value;
+    const response = await fetch(`http://localhost:8080/verificacao/${cod}`,{method:"POST"}).then((existe)=> existe.json());
+    const dado = response.COUNT
+    if(dado == 1){
+        const tipoBilhete = await fetch(`http://localhost:8080/utilizacao/tipo/${cod}`,{method:"POST"}).then((tipo)=> tipo.json());
+        console.log(tipoBilhete);
+        creditoR = await fetch (`http://localhost:8080/recarga/credito/${cod}`,{method:"POST"}).then((credito)=> credito.json());
+        console.log(creditoR);
+        if(creditoR != 0){
+
+            switch (tipoBilhete){
+                case "unico":
+                    console.log("unico 123")
+                    tempo = 0.667;
+                    break;
+                case 'duplo':
+                    console.log("duplo 123")
+                    tempo = 0.667;
+                    break;
+                case '7dias':
+                    console.log("7 123")
+                    tempo = 168;
+                    break;
+                case '30dias':
+                    console.log("30 123")
+                    tempo = 720;
+                    break;
+            } 
+            var dataExpiracaoFormat = formatarData(addHoursToDate(data,tempo));
+            existeRec = await fetch(`http://localhost:8080/utilizacao/confirmarRecarga/${cod}`,{method:"POST"}).then((existeRecarga)=> existeRecarga.json());
+           console.log(tempo);
+            console.log(existeRec);
+            if(existeRec != 0){
+                console.log("fdp")
+                const print = await fetch(`http://localhost:8080/utilizacao/create/${cod}/${tempo}`,{method:"POST"}).then((sexu)=> sexu.json());
+                if(print == 1){
+                    console.log("oi")
+                    document.getElementById("infos").innerHTML = tipoBilhete + " " + dataExpiracaoFormat;
+                }
+            }else{
+                document.getElementById("infos").innerHTML = "Você não realizou nenhuma recarga";
+            }
+        }else{
+
+            const dataExpiracao = await fetch(`http://localhost:8080/utilizacao/dataEx/${cod}`,{method:"POST"}).then((dataexpiracao)=> dataexpiracao.json());
+            
+            if(dataExpiracao == 1){
+                document.getElementById("infos").innerHTML = "Sua recarga expirou";
+            }else{
+                
+                document.getElementById("infos").innerHTML = "Tipo " + tipoBilhete + " válida"
+            }
+        }
+    }else{
+        document.getElementById("infos").innerHTML ="cod invalido";
+        
+    }
 
 
 }
@@ -114,3 +157,4 @@ async function utilizacao(codigo, tipo){
 module.exports = gerarCodigo(); 
 module.exports = gerarRecarga();
 module.exports = includeHTML();
+module.exports = utilizacao();
