@@ -17,27 +17,16 @@
     <!--COLOCA O HEADER-->
     <div w3-include-html="Header.html" class="header"></div>
     <div class="corpo">
-        <div class="col-md-6">
-            <div class="codigosUt">
-                <br>
-                <label for="codigoBilhete">Insira o código do bilhete urbano:</label>
-                <br>
-                <input type="text" name="codigoBilhete" id="codigoBilhete"/>
-                <a type="button" class="btn SobreBilhete" id="UtilizarBtn" onclick="utilizacao()">
-                    UTILIZAR
-                </a>
-            </div>
+        <div class="codigoInserido">
+            <br>
+            <label for="codigoBilhete">Insira o código do bilhete urbano:</label>
+            <br>
+            <input type="text" name="codigoBilhete" id="codigoBilhete"/>
+            <a type="button" class="btn SobreBilhete" id="UtilizarBtn" onclick="utilizacao()">
+                UTILIZAR
+            </a>
         </div>
-        <div class="col-md-6">
-            <div class="codigosUt">
-                <br>
-                <label>Sua recarga é:</label>
-                <br>
-                <label id="infos">&nbsp;</label> 
-            </div>
         </div>
-        <br>
-
         <div id="SobreBilhete" class="utilizacaoBilhete">
             <figure>
                 <a href="#" class="close"></a>
@@ -62,14 +51,20 @@
                         <h4>30 dias</h4>
                         O crédito do bilhete será debitado pelo sistema. Você poderá utilizar o bilhete em qualquer e quantos transportes quiser, durante 30 dias
                     </div>
+
+                    <div id="invalido" class="hidden">
+                        Código inválido
+                    </div>
+
+                    <div id="expirada" class="hidden">
+                        Sua recarga está expirada
+                    </div>
+
+                    <div id="semRecarga" class="hidden">
+                        Você não realizou nenhuma recarga! Vá para a <a href="/Recarga">Recarga</a> para recarregar seu bilhete
                 </figcaption>
             </figure>
         </div>
-    </div>
-    <div id="SobreBilhete" class="utilizacaoBilhete">
-                O crédito do bilhete será debitado pelo sistema. Você poderá utilizar o bilhete em qualquer e quantos transportes quiser, durante 40 minutos
-            </figcaption>
-        </figure>
     </div>
     <!--COLOCA O FOOTER-->
     <div w3-include-html="Footer.html" class="footer"></div>
