@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 require('./src/controle/executarBD')
-require('./src/controle/teste')
+
 
 app.use(express.json());
 
@@ -61,8 +61,9 @@ app.post("/codrecarga/create/:cod/:tipo/:valor/:credito", async (req,res,next)=>
 });
 
 app.post('/recarga/credito/:cod', async (req, res) => {// RETORNA O CREDITO DO BILHETE DIGITADO
-    const response = await runQuery('SELECT CREDITO FROM recarga WHERE fk_codigo_bilhete = :id order by data_e_hora_recarga',[req.params.cod]);
+    const response = await runQuery('SELECT CREDITO FROM recarga WHERE fk_codigo_bilhete = :id order by data_e_hora_recarga desc',[req.params.cod]);
     const credito = response.rows[0].CREDITO
+    console.log(credito)
     return res.json(credito);
 })
 
@@ -137,6 +138,3 @@ app.listen(8080, function(){
     console.log("Está no ar!");
 });
 
-// const existe = await teste('SELECT data_compra FROM bilhetes');
-//     const data = existe.rows[0].DATA_COMPRA;                            // a DbObject for the named Oracle type
-//     console.log(data);

@@ -80,7 +80,19 @@ function addHoursToDate(dateObj,intHour){
     return newDateObj;
 }
 
+// const OpenModalButton = document.querySelector('#open-modal');
+// const closeModalButton = document.querySelector('#close-moda');
 
+const toggleModal = () => {
+    const modal = document.querySelector('#modal');
+    const fade = document.querySelector('#fade');
+    modal.classList.toggle('hidden');
+    fade.classList.toggle('hidden');
+};
+
+// [OpenModalButton, closeModalButton, fade,utilizacao].forEach((el)) =>{
+//     el.addEventListener('click', () => toggleModal
+// }
 
 
 
@@ -92,40 +104,43 @@ async function utilizacao(){
     const response = await fetch(`http://localhost:8080/verificacao/${cod}`,{method:"POST"}).then((existe)=> existe.json());
     const dado = response.COUNT
     if(dado == 1){
+        console.log('sim')
         const tipoBilhete = await fetch(`http://localhost:8080/utilizacao/tipo/${cod}`,{method:"POST"}).then((tipo)=> tipo.json());
         console.log(tipoBilhete);
         creditoR = await fetch (`http://localhost:8080/recarga/credito/${cod}`,{method:"POST"}).then((credito)=> credito.json());
         console.log(creditoR);
+        switch (tipoBilhete){
+            case "unico":
+                tempo = 0.667;
+                document.getElementById("").innerHTML = "O crédito do bilhete será debitado pelo sistema. Você poderá utilizar o bilhete em qualquer e quantos transportes quiser, durante 40 minutos";
+                break;
+            case 'duplo':
+                document.getElementById("").innerHTML = "O crédito do bilhete será debitado pelo sistema. Você poderá utilizar o bilhete em qualquer e quantos transportes quiser, durante 40 minutos, 2 vezes"
+                tempo = 0.667;
+                break;
+            case '7dias':
+                document.getElementById("").innerHTML = "O crédito do bilhete será debitado pelo sistema. Você poderá utilizar o bilhete em qualquer e quantos transportes quiser, durante 7 dias";
+                tempo = 168;
+                break;
+            case '30dias':
+                document.getElementById("").innerHTML = "O crédito do bilhete será debitado pelo sistema. Você poderá utilizar o bilhete em qualquer e quantos transportes quiser, durante 30 dias";
+                tempo = 720;
+                break;
+        } 
+        
+        console.log(element);
         if(creditoR != 0){
-
-            switch (tipoBilhete){
-                case "unico":
-                    console.log("unico 123")
-                    tempo = 0.667;
-                    break;
-                case 'duplo':
-                    console.log("duplo 123")
-                    tempo = 0.667;
-                    break;
-                case '7dias':
-                    console.log("7 123")
-                    tempo = 168;
-                    break;
-                case '30dias':
-                    console.log("30 123")
-                    tempo = 720;
-                    break;
-            } 
+            console.log(creditoR);
             var dataExpiracaoFormat = formatarData(addHoursToDate(data,tempo));
             existeRec = await fetch(`http://localhost:8080/utilizacao/confirmarRecarga/${cod}`,{method:"POST"}).then((existeRecarga)=> existeRecarga.json());
-           console.log(tempo);
+            console.log(tempo);
             console.log(existeRec);
             if(existeRec != 0){
                 console.log("fdp")
                 const print = await fetch(`http://localhost:8080/utilizacao/create/${cod}/${tempo}`,{method:"POST"}).then((sexu)=> sexu.json());
                 if(print == 1){
-                    console.log("oi")
-                    document.getElementById("infos").innerHTML = tipoBilhete + " " + dataExpiracaoFormat;
+                    document.getElementsByClassName("labelDataEx").innerHTML =  dataExpiracaoFormat;
+                    toggleModal();
                 }
             }else{
                 document.getElementById("infos").innerHTML = "Você não realizou nenhuma recarga";
@@ -149,6 +164,9 @@ async function utilizacao(){
 
 }
 
+async function gerenciamento(){
+
+}
 
 
 
