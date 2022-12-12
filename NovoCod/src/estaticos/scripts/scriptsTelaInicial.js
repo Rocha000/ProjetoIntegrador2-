@@ -172,19 +172,14 @@ async function gerenciamento(){
     const cod = document.getElementById("codigoBilhete").value;
     const response = await fetch(`http://localhost:8080/verificacao/${cod}`,{method:"POST"}).then((existe)=> existe.json());
     const dado = response.COUNT;
-    if(dado === 1){  
+    if(dado == 1){  
+        document.getElementById("sim").innerHTML = "";
         var array = await fetch(`http://localhost:8080/gerenciamento/${cod}`,{method:"POST"}).then((array)=> array.json());
         for (i in array){
             addDiv(array[i].tipo, array[i].data_geracao, array[i].data_recarga, array[i].data_utilizacao); 
         }
     }else{
-        document.getElementById("").innerHTML = "codigo invalido";
+        document.getElementById("sim").innerHTML = "codigo invalido";
     }
 }
 
-module.exports = gerarCodigo(); 
-module.exports = gerarRecarga();
-module.exports = includeHTML();
-module.exports = utilizacao();
-module.exports = closeModalButton();
-module.exports = gerenciamento();
