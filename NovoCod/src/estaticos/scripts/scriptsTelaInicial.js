@@ -1,6 +1,4 @@
-
 require('../../controle/executarBD');
-
 
 function includeHTML() {
     var z, i, elmnt, file, xhttp;
@@ -70,7 +68,6 @@ async function gerarRecarga (aceite,tipo,valor,credito) {
     }
 }
 
-
 //utilização
 function formatarData (data) {
     var dataString = data.getDate()  + "/" + (data.getMonth()+1) + "/" + data.getFullYear() + " " +
@@ -85,10 +82,10 @@ function addHoursToDate(dateObj,intHour){
     return newDateObj;
 }
 
-
 function closeModalButton() {
     toggleModal();
 }
+
 function toggleModal(){
 
     const modal =document.getElementById('modal');
@@ -96,10 +93,6 @@ function toggleModal(){
     modal.classList.toggle('hide');
     fade.classList.toggle('hide');
 };
-
-
-
-
 
 async function utilizacao(){
     var tempo;
@@ -133,7 +126,6 @@ async function utilizacao(){
             var dataExpiracaoFormat = formatarData(addHoursToDate(data,tempo));
             const creditoR = await fetch (`http://localhost:8080/recarga/credito/${cod}`,{method:"POST"}).then((credito)=> credito.json());
            
-            
             if(creditoR != 0){
                 const print = await fetch(`http://localhost:8080/utilizacao/create/${cod}/${tempo}`,{method:"POST"}).then((objeto)=> objeto.json());
                 if(print == 1){
@@ -149,62 +141,46 @@ async function utilizacao(){
                     document.getElementById("infosBilhete").innerHTML = "";
                     toggleModal();
                 }else{
-                    document.getElementById("faladele").innerHTML = "Tipo " + tipoBilhete + " válido"
+                    document.getElementById("faladele").innerHTML = "Tipo " + tipoBilhete + " válido";
                     toggleModal();
                 }
             }
         }else{
             document.getElementById("faladele").innerHTML = "Você não realizou nenhuma recarga";
             toggleModal();
-
         }
     }else{
         toggleModal();
         document.getElementById("faladele").innerHTML ="codigo invalido";
-        
     }
-
-
 }
 
 async function addDiv(tipo,dataGeracao, dataRecarga, dataUtilizacao){
-    let div = document.createElement('div')
-    div.className = 'addElemento'
+    let div = document.createElement('div');
+    div.className = 'addElemento';
     div.innerHTML = `
     <div class="linha">
         <div>${dataGeracao}</div>
         <div>${tipo}</div>
         <div>${dataRecarga}</div>
         <div>${dataUtilizacao}</div>
-    </div>`
-    document.querySelector('.conteudo').appendChild(div)
+    </div>`;
+    document.querySelector('.conteudo').appendChild(div);
 }
-
-
-
-
 
 async function gerenciamento(){
     const cod = document.getElementById("codigoBilhete").value;
     const response = await fetch(`http://localhost:8080/verificacao/${cod}`,{method:"POST"}).then((existe)=> existe.json());
-    const dado = response.COUNT
+    const dado = response.COUNT;
     if(dado === 1){  
         var array = await fetch(`http://localhost:8080/gerenciamento/${cod}`,{method:"POST"}).then((array)=> array.json());
         for (i in array){
             addDiv(array[i].tipo, array[i].data_geracao, array[i].data_recarga, array[i].data_utilizacao); 
         }
     }else{
-        document.getElementById("").innerHTML = "codigo invalido"
+        document.getElementById("").innerHTML = "codigo invalido";
     }
 }
-
-function scrollFunction() {
-    if (document.documentElement.scrollTop === document.body.scrollHeight) {
-        document.getElementById("footer").className = "footer";
-    } else {
-        document.getElementById("footer").className = "hidden";
-    }
-  }
 
 module.exports = gerarCodigo(); 
 module.exports = gerarRecarga();
@@ -212,4 +188,3 @@ module.exports = includeHTML();
 module.exports = utilizacao();
 module.exports = closeModalButton();
 module.exports = gerenciamento();
-module.exports = scrollFunction();

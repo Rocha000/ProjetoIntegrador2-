@@ -59,7 +59,7 @@ th, td {
 
 .bilhetes {
     background-color: #CCE0FF;
-    margin: 2.5%;
+    margin: 2%;
     color: black;
     border: 1px solid lightgray;
     border-radius: 10px;
@@ -87,7 +87,7 @@ th, td {
 .codigoInserido {
     background-color: lightgray;
     text-align: center;
-    margin-top: 2em;
+    margin-top: 10em;
     border: 1px solid gray;
     border-radius: 10px;
     width: 50%;
@@ -134,7 +134,7 @@ th, td {
 }
 
 .galeriaBilhetes {
-    margin-left: auto;
+    margin-left: 2.5%;
 }
 
 .footer {
@@ -189,10 +189,6 @@ button.logo {
 img.logo {
     width: 4em;
     vertical-align: top;
-}
-
-.meio {
-    margin-top: 10em;
 }
 
 .recarga {
@@ -400,16 +396,14 @@ a.SobreBilhete {
 }
 
 .modal-header {
-    display: inline-flex;
     padding: 10px 20px;
-} .modal-header h2 {
-    padding-right: 20px;
+} .modal-header img {
+    width: 20px;
+    height: 20px;
+    margin-left: 90%;
 } .modal-header #close-modal {
-    display: inline-block;
     padding: 0.8rem 1.2rem 0.8rem 1.2rem;
-    border: 0.125rem solid #ff0000;
     border-radius: 50px;
-    background-color: #ff0000;
     color: #fff;
     text-align: center;
     text-decoration: none;
