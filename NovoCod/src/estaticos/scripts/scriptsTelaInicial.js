@@ -198,9 +198,13 @@ async function gerenciamento(){
     }
 }
 
-
-
-
+function scrollFunction() {
+    if (document.documentElement.scrollTop === document.body.scrollHeight) {
+        document.getElementById("footer").className = "footer";
+    } else {
+        document.getElementById("footer").className = "hidden";
+    }
+  }
 
 module.exports = gerarCodigo(); 
 module.exports = gerarRecarga();
@@ -208,3 +212,4 @@ module.exports = includeHTML();
 module.exports = utilizacao();
 module.exports = closeModalButton();
 module.exports = gerenciamento();
+module.exports = scrollFunction();

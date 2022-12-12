@@ -89,6 +89,7 @@ th, td {
     text-align: center;
     margin-top: 2em;
     border: 1px solid gray;
+    border-radius: 10px;
     width: 50%;
     margin-left: 25%;
 } .codigoInserido label {
@@ -107,6 +108,7 @@ th, td {
 .col-md-6 img {
     width: 100%;
     border: 2px solid black;
+    border-radius: 5px;
 }
 
 .container {
@@ -222,6 +224,8 @@ a.SobreBilhete {
     margin-top: 1em;
     margin-bottom: 12em;
     width: 90%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     height: fit-content;
     overflow: hidden;
     text-align: center;
