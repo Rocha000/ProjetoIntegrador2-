@@ -189,6 +189,10 @@ img.logo {
     vertical-align: top;
 }
 
+.meio {
+    margin-top: 10em;
+}
+
 .recarga {
     background: transparent;
 }
@@ -215,7 +219,7 @@ a.SobreBilhete {
 }
 
 .tabelaGerBilhete {
-    margin-top: 12em;
+    margin-top: 1em;
     margin-bottom: 12em;
     width: 90%;
     height: fit-content;
@@ -231,13 +235,13 @@ a.SobreBilhete {
     border-bottom: 1px black solid;
 } .tabelaGerBilhete .cabecalho div {
     float: left;
-    width: 20%;
+    width: 25%;
 } .tabelaGerBilhete .linha {
     width: 100%;
     height: 2em;
 } .tabelaGerBilhete .linha div {
     float: left;
-    width: 20%;
+    width: 25%;
 } .tabelaGerBilhete .conteudo {
     width: 100%;
     background-color: white;
@@ -297,10 +301,6 @@ a.SobreBilhete {
     position: fixed;
     content: "";
     cursor: default;
-}
-
-.Utilizacao {
-    margin-top: 10%;
 }
 
 .utilizacaoBilhete {
