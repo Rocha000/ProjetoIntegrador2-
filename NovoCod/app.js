@@ -138,9 +138,10 @@ app.post('/gerenciamento/:cod', async  (req, res) => {
         "data_recarga":"",
         "data_utilizacao":"",
     }
-    const selecJoin = await runQuery("select tipo_recarga as TIPO,data_geracao as DATA_GERACAO,data_e_hora_recarga AS DATA_RECARGA,data_e_hora_expiracao as DATA_UTILIZACAO from bilhetes join recarga on bilhetes.codigo_bilhete = recarga.fk_codigo_bilhete join utilizacao on bilhetes.codigo_bilhete = utilizacao.fk_codigo_bilhete where codigo_bilhete = :id",[req.params.cod]);
+    const selecJoin = await runQuery("select tipo_recarga as TIPO,data_geracao as DATA_GERACAO,data_e_hora_recarga AS DATA_RECARGA,data_e_hora_utilizacao as DATA_UTILIZACAO from bilhetes join recarga on bilhetes.codigo_bilhete = recarga.fk_codigo_bilhete join utilizacao on bilhetes.codigo_bilhete = utilizacao.fk_codigo_bilhete where codigo_bilhete = :id",[req.params.cod]);
     
     for(i in selecJoin.rows){
+        referencia={}
         referencia.tipo = selecJoin.rows[i].TIPO;
         referencia.data_geracao = formatarData(selecJoin.rows[i].DATA_GERACAO)
         referencia.data_recarga = formatarData(selecJoin.rows[i].DATA_RECARGA)
