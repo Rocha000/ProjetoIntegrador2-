@@ -1,4 +1,4 @@
-const select = require('../../controle/select');
+
 require('../../controle/executarBD');
 
 
@@ -54,8 +54,14 @@ async function gerarRecarga (aceite,tipo,valor,credito) {
         const response = await fetch(`http://localhost:8080/verificacao/${cod}`,{method:"POST"}).then((existe)=> existe.json());
         const data = response.COUNT
         if (data == 1){
-            document.getElementById("avisoRecarga").innerHTML = "Recarga efetuada!";
-            await fetch(`http://localhost:8080/codrecarga/create/${cod}/${tipo}/${valor}/${credito}`,{method:"POST"});
+            const countRecarga = await fetch(`http://localhost:8080/recarga/validacao/${cod}`,{method:"POST"}).then((credito)=>credito.json());
+            if (countRecarga != 0){
+                document.getElementById("avisoRecarga").innerHTML = "Já possui uma recarga ativa!";
+            }else{
+                document.getElementById("avisoRecarga").innerHTML = "Recarga efetuada!";
+                await fetch(`http://localhost:8080/codrecarga/create/${cod}/${tipo}/${valor}/${credito}`,{method:"POST"});
+
+            }
         }else{
             document.getElementById("avisoRecarga").innerHTML = "código invalido!";
         }  
@@ -76,11 +82,10 @@ function addHoursToDate(dateObj,intHour){
     var numberOfM1Seconds = dateObj.getTime();
     var addMlSeconds = (intHour * 60) * 60 * 1000;
     var newDateObj = new Date(numberOfM1Seconds + addMlSeconds);
-  
     return newDateObj;
 }
 
-// const OpenModalButton = document.querySelector('#open-modal');
+
 function closeModalButton() {
     toggleModal();
 }
@@ -92,9 +97,7 @@ function toggleModal(){
     fade.classList.toggle('hide');
 };
 
-// [OpenModalButton, closeModalButton, fade,utilizacao].forEach((el)) =>{
-//     el.addEventListener('click', () => toggleModal
-// }
+
 
 
 
@@ -106,13 +109,9 @@ async function utilizacao(){
     const response = await fetch(`http://localhost:8080/verificacao/${cod}`,{method:"POST"}).then((existe)=> existe.json());
     const dado = response.COUNT
     if(dado == 1){
-        
         const existeRec = await fetch(`http://localhost:8080/utilizacao/confirmarRecarga/${cod}`,{method:"POST"}).then((existeRecarga)=> existeRecarga.json());
-        
-        
         if(existeRec != 0){
             const tipoBilhete = await fetch(`http://localhost:8080/utilizacao/tipo/${cod}`,{method:"POST"}).then((tipo)=> tipo.json());
-            
             switch (tipoBilhete){
                 case "unico":
                     tempo = 0.667;
@@ -136,7 +135,6 @@ async function utilizacao(){
            
             
             if(creditoR != 0){
-                console.log("fdp")
                 const print = await fetch(`http://localhost:8080/utilizacao/create/${cod}/${tempo}`,{method:"POST"}).then((objeto)=> objeto.json());
                 if(print == 1){
                     document.getElementById("faladele").innerHTML = "Tipo do bilhete: " + tipoBilhete +`<br>`+ "Data de Expiração: " + dataExpiracaoFormat
@@ -169,18 +167,35 @@ async function utilizacao(){
 
 }
 
+async function addDiv(tipo,dataGeracao, dataRecarga, dataUtilizacao){
+    let div = document.createElement('div')
+    div.className = 'addElemento'
+    div.innerHTML = `
+    <div class="linha">
+        <div>${dataGeracao}</div>
+        <div>${tipo}</div>
+        <div>${dataRecarga}</div>
+        <div>${dataUtilizacao}</div>
+    </div>`
+    document.querySelector('.conteudo').appendChild(div)
+}
+
+
+
+
+
 async function gerenciamento(){
-    const cod = document.getElementById("").value;
+    const cod = document.getElementById("codigoBilhete").value;
     const response = await fetch(`http://localhost:8080/verificacao/${cod}`,{method:"POST"}).then((existe)=> existe.json());
     const dado = response.COUNT
-    if(dado == 1){
-        const txt = await fetch(`http://localhost:8080/gerenciamento/${cod}`,{method:"POST"}).then((existe)=> existe.json());
-
-
+    if(dado === 1){  
+        var array = await fetch(`http://localhost:8080/gerenciamento/${cod}`,{method:"POST"}).then((array)=> array.json());
+        for (i in array){
+            addDiv(array[i].tipo, array[i].data_geracao, array[i].data_recarga, array[i].data_utilizacao); 
+        }
     }else{
         document.getElementById("").innerHTML = "codigo invalido"
     }
-
 }
 
 
@@ -192,3 +207,4 @@ module.exports = gerarRecarga();
 module.exports = includeHTML();
 module.exports = utilizacao();
 module.exports = closeModalButton();
+module.exports = gerenciamento();
