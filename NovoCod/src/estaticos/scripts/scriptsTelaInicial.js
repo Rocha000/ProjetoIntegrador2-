@@ -1,5 +1,3 @@
-require('../../controle/executarBD');
-
 function includeHTML() {
     var z, i, elmnt, file, xhttp;
     /*loop through a collection of all HTML elements:*/
@@ -61,7 +59,7 @@ async function gerarRecarga (aceite,tipo,valor,credito) {
 
             }
         }else{
-            document.getElementById("avisoRecarga").innerHTML = "código invalido!";
+            document.getElementById("avisoRecarga").innerHTML = "código inválido!";
         }  
     }catch(error){
         console.log(error);
@@ -107,8 +105,8 @@ async function utilizacao(){
             const tipoBilhete = await fetch(`http://localhost:8080/utilizacao/tipo/${cod}`,{method:"POST"}).then((tipo)=> tipo.json());
             switch (tipoBilhete){
                 case "unico":
-                    tempo = 0.667;
                     document.getElementById("infosBilhete").innerHTML = "O crédito do bilhete será debitado pelo sistema. Você poderá utilizar o bilhete em qualquer e quantos transportes quiser, durante 40 minutos";
+                    tempo = 0.667;
                     break;
                 case 'duplo':
                     document.getElementById("infosBilhete").innerHTML = "O crédito do bilhete será debitado pelo sistema. Você poderá utilizar o bilhete em qualquer e quantos transportes quiser, durante 40 minutos, 2 vezes"
@@ -151,7 +149,7 @@ async function utilizacao(){
         }
     }else{
         toggleModal();
-        document.getElementById("faladele").innerHTML ="codigo invalido";
+        document.getElementById("faladele").innerHTML ="código inválido";
     }
 }
 
@@ -172,14 +170,14 @@ async function gerenciamento(){
     const cod = document.getElementById("codigoBilhete").value;
     const response = await fetch(`http://localhost:8080/verificacao/${cod}`,{method:"POST"}).then((existe)=> existe.json());
     const dado = response.COUNT;
-    if(dado == 1){  
-        document.getElementById("sim").innerHTML = "";
+    document.querySelector('.conteudo').innerHTML = "";
+    if(dado == 1){
         var array = await fetch(`http://localhost:8080/gerenciamento/${cod}`,{method:"POST"}).then((array)=> array.json());
         for (i in array){
             addDiv(array[i].tipo, array[i].data_geracao, array[i].data_recarga, array[i].data_utilizacao); 
         }
     }else{
-        document.getElementById("sim").innerHTML = "codigo invalido";
+        document.querySelector('.conteudo').innerHTML = '<b>Código inválido!</b>';
     }
 }
 

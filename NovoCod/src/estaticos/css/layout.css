@@ -87,7 +87,7 @@ th, td {
 .codigoInserido {
     background-color: lightgray;
     text-align: center;
-    margin-top: 10em;
+    margin-top: 5em;
     border: 1px solid gray;
     border-radius: 10px;
     width: 50%;
@@ -216,6 +216,12 @@ a.SobreBilhete {
     margin: 0.5em;
 }
 
+.svgX {
+    width: 20px;
+    height: 20px;
+    margin-left: 90%;
+}
+
 .tabelaGerBilhete {
     margin-top: 1em;
     margin-bottom: 12em;
@@ -275,25 +281,10 @@ a.SobreBilhete {
     overflow-y: scroll;
     color: black;
     box-shadow: 1px 1px 2px lightgray;
-} .termosDeUso .close {
+} .termosDeUso a {
     position: relative;
     display: block;
-} .termosDeUso .close::after {
-    right: -1rem;
-    top: -1rem;
-    width: 2rem;
-    height: 2rem;
-    position: absolute;
-    display: flex;
-    z-index: 3;
-    align-items: center;
-    justify-content: center;
-    background-color: black;
-    border-radius: 50%;
-    color: white;
-    content: "×";
-    cursor: pointer;
-} .termosDeUso .close::before {
+} .termosDeUso a::before {
     left: 0;
     top: 0;
     width: 100%;
@@ -397,10 +388,6 @@ a.SobreBilhete {
 
 .modal-header {
     padding: 10px 20px;
-} .modal-header img {
-    width: 20px;
-    height: 20px;
-    margin-left: 90%;
 } .modal-header #close-modal {
     padding: 0.8rem 1.2rem 0.8rem 1.2rem;
     border-radius: 50px;
