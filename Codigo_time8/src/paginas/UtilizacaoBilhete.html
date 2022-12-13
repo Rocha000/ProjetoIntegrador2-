@@ -19,7 +19,7 @@
             <label for="codigoBilhete">Insira o código do bilhete urbano:</label>
             <br>
             <input type="text" name="codigoBilhete" id="codigoBilhete"/>
-            <a type="button" class="btn SobreBilhete" id="UtilizarBtn" onclick="toggleModal()">
+            <a type="button" class="btn SobreBilhete" id="UtilizarBtn" onclick="utilizacao()">
                 UTILIZAR
             </a>
         </div>
@@ -28,7 +28,7 @@
     <div id="fade" class="hide">
         <div id="modal" class="hide">
             <div class="modal-header">
-                <buttom id="close-modal" onclick="closeModalButton()"><img src="imagens/icon-1.5s-143px.svg" class="svgX"></buttom>
+                <buttom id="close-modal" onclick="toggleModal()"><img src="imagens/icon-1.5s-143px.svg" class="svgX"></buttom>
                 <h2 id="headerModal">Regras da Utilização do Bilhete</h2>
             </div>
             <div class="modal-body">

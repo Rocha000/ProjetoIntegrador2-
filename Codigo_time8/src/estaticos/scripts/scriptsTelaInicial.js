@@ -103,12 +103,14 @@ async function utilizacao(){
     const cod = document.getElementById('codigoBilhete').value;
     if(!isDigit(cod)) {
         toggleModal();
-        document.getElementById("faladele").innerHTML ="código inválido";
+        document.getElementById("faladele").innerHTML ="Código inválido";
         return null;
     };
+    
     const response = await fetch(`http://localhost:8080/verificacao/${cod}`,{method:"POST"}).then((existe)=> existe.json());
     const dado = response.COUNT;
     if(dado == 1){
+        
         const existeRec = await fetch(`http://localhost:8080/utilizacao/confirmarRecarga/${cod}`,{method:"POST"}).then((existeRecarga)=> existeRecarga.json());
         if(existeRec != 0){
             const tipoBilhete = await fetch(`http://localhost:8080/utilizacao/tipo/${cod}`,{method:"POST"}).then((tipo)=> tipo.json());
@@ -134,27 +136,33 @@ async function utilizacao(){
             const creditoR = await fetch (`http://localhost:8080/recarga/credito/${cod}`,{method:"POST"}).then((credito)=> credito.json());
            
             if(creditoR != 0){
+                
                 const print = await fetch(`http://localhost:8080/utilizacao/create/${cod}/${tempo}`,{method:"POST"}).then((objeto)=> objeto.json());
                 if(print == 1){
+                    
                     document.getElementById("faladele").innerHTML = "Tipo do bilhete: " + tipoBilhete +`<br>`+ "Data de Expiração: " + dataExpiracaoFormat
                 }
             }else{
                 const dataExpiracao = await fetch(`http://localhost:8080/utilizacao/dataEx/${cod}`,{method:"POST"}).then((objeto)=> objeto.json());
                 
                 if(dataExpiracao == 1){
+                    
                     document.getElementById("faladele").innerHTML = "Sua recarga expirou";
                     document.getElementById("infosBilhete").innerHTML = "";
                 }else{
-                    document.getElementById("faladele").innerHTML = "Tipo " + tipoBilhete + " válido";
+                    
+                    document.getElementById("faladele").innerHTML = "Tipo do bilhete: " + tipoBilhete + " válido";
                 }
             }
         }else{
-                document.getElementById("infosBilhete").innerHTML = "";
-                document.getElementById("faladele").innerHTML = "Você não realizou nenhuma recarga";
+            
+            document.getElementById("infosBilhete").innerHTML = "";
+            document.getElementById("faladele").innerHTML = "Você não realizou nenhuma recarga";
         }
     }else{
-            document.getElementById("infosBilhete").innerHTML = "";
-            document.getElementById("faladele").innerHTML ="código inválido";
+        
+        document.getElementById("infosBilhete").innerHTML = "";
+        document.getElementById("faladele").innerHTML ="Código inválido";
     }
     toggleModal();
 }
