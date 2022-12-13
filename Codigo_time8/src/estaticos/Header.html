@@ -1,11 +1,15 @@
 <form id="headerLogo" action="/" method="POST" class="headerLogo"></form>
-<form id="contato" action="mailto:luan.mmpt@puccampinas.edu.br"></form>
-<div>
-    <button type="submit" class="logo" form="headerLogo" title="Tela Inicial">
-        <h2>TickTicket</h2>
-    </button>
-    <div class="headerButtons">
-        <button type="submit" class="headerButton" form="headerLogo" title="Home">Home</button>
-        <button type="submit" class="headerButton" form="contato" title="Contato">Contato</button>
-    </div>
+<form id="recarga" action="/Recarga" method="POST"></form>
+<form id ="geracaoBilhete" action="/GeracaoBilhete" method="POST"></form>
+<form id ="gerenciamentoBilhete" action="/GerenciamentoBilhete" method="POST"></form>
+<form id ="utilizacaoBilhete" action="/UtilizacaoBilhete" method="POST"></form>
+<button type="submit" class="logo" form="headerLogo" title="Tela Inicial">
+    <h2>TickTicket</h2>
+</button>
+<div class="headerButtons">
+    <button type="submit" class="headerButton homeB" form="headerLogo" title="Tela Inicial">Home</button>
+    <button type="submit" class="headerButton homeB" form="geracaoBilhete" title="Geração do Bilhete">Geração do Bilhete</button>
+    <button type="submit" class="headerButton homeB" form="recarga" title="Recarga">Recarga</button>
+    <button type="submit" class="headerButton homeB" form="utilizacaoBilhete" title="Utilização do Bilhete">Utilização do Bilhete</button>
+    <button type="submit" class="headerButton homeB" form="gerenciamentoBilhete" title="Gerenciamento do Bilhete">Gerenciamento do Bilhete</button>
 </div>

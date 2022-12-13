@@ -144,6 +144,8 @@ th, td {
     bottom: 0;
     width: 100%;
     background-color: rgb(47, 161, 255);
+} .footer a {
+    color: inherit;
 }
 
 .header {
@@ -174,6 +176,8 @@ th, td {
 } .home {
     background-color: white;
     color: black;
+} .home .homeB {
+    display: none;
 }
 
 button.logo {
