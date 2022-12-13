@@ -48,11 +48,7 @@ app.post("/bilhetes/create/:cod", async (req,res,next)=>{ //INSERE O COD GERADO 
 app.post("/verificacao/:cod", async (req,res,next)=>{ // VERIFICA SE O BILHETE EXISTE
     const existe = await runQuery('SELECT count (*) as COUNT FROM bilhetes WHERE codigo_bilhete = :id',[req.params.cod]);
     const dado = existe.rows[0].COUNT;
-    if (dado === 1){
-        return res.json(existe.rows[0]);
-    }else{
-       return res.json(existe.rows[0]);
-    }
+    return res.json(existe.rows[0]);
 })
 
 app.post("/codrecarga/create/:cod/:tipo/:valor/:credito", async (req,res,next)=>{ //INSERE NA TABELA RECARGA
@@ -76,18 +72,12 @@ app.post('/utilizacao/tipo/:cod', async(req, res, next)=>{// RETORNA O TIPO DO B
 app.post('/utilizacao/confirmarRecarga/:cod', async(req,res,next)=>{//VERIFICA SE A RECARGA DO BILHETE DIGITADO EXISTE
     const existeRecarga = await runQuery('SELECT count (*) as COUNT FROM recarga WHERE fk_codigo_bilhete = :id',[req.params.cod]);
     const dado = existeRecarga.rows[0].COUNT;
-
-    if (dado != 0){
-        return res.json(dado);
-    }else{
-       return res.json(dado);
-    }
+    return res.json(dado);
 })
 app.post('/utilizacao/create/:cod/:tempo', async(req, res, next)=>{//INSERE NA TABELA UTILIZACAO E FAZ O UPDATE DA RECARGA
     var data = new Date();
     var dataUtilizacao = formatarData(data);
-    const dataExpiracao = addHoursToDate(data,req.params.tempo);
-    const dataExpiracaoFormat = formatarData(dataExpiracao);
+    const dataExpiracaoFormat = formatarData(addHoursToDate(data,req.params.tempo));
     var objeto = {"name": "1"};
     await runQuery('insert into utilizacao (FK_CODIGO_BILHETE,data_e_hora_utilizacao,data_e_hora_expiracao ) values(:id,:id,:id)',[req.params.cod,dataUtilizacao,dataExpiracaoFormat]);
     const dados = await runQuery('SELECT CODIGO_RECARGA,CREDITO FROM recarga WHERE fk_codigo_bilhete = :id order by data_e_hora_recarga desc',[req.params.cod]);
@@ -148,7 +138,6 @@ app.post('/gerenciamento/:cod', async  (req, res) => {
         referencia.data_utilizacao = formatarData(selecJoin.rows[i].DATA_UTILIZACAO)
         array.push(referencia)
     }
-    console.log(array)
     return res.json(array);
 
 })
@@ -158,14 +147,9 @@ app.post('/recarga/validacao/:cod',async(req, res)=>{
     if (contar !=0){
         const credito = await runQuery('select CREDITO from RECARGA WHERE fk_codigo_bilhete = :id',[req.params.cod]);
         const creditoR = credito.rows[0].CREDITO
-        if(creditoR !=0){
-            return res.json(creditoR);
-        }else{
-            return res.json(creditoR);
-
-        }
+        return res.json(creditoR);
     }else{
-        return res.json(contar)
+        return res.json(contar);
     }
 })
 

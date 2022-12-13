@@ -25,6 +25,11 @@ function includeHTML() {
         }
     }
 };
+
+function isDigit(n) {
+    return /^\d+$/.test(n);
+};
+
 async function gerarCodigo (aceite) {
     if (document.getElementById(aceite).checked == false) {
         document.getElementById("res").textContent = "Você precisa aceitar os termos de uso!";
@@ -46,6 +51,10 @@ async function gerarRecarga (aceite,tipo,valor,credito) {
             return null;
         }
         const cod = document.getElementById('codigoBilhete').value;
+        if(!isDigit(cod)) {
+            document.getElementById("avisoRecarga").innerHTML ="código inválido";
+            return null;
+        };
         document.getElementById("avisoRecarga").textContent = "";
         const response = await fetch(`http://localhost:8080/verificacao/${cod}`,{method:"POST"}).then((existe)=> existe.json());
         const data = response.COUNT
@@ -80,10 +89,6 @@ function addHoursToDate(dateObj,intHour){
     return newDateObj;
 }
 
-function closeModalButton() {
-    toggleModal();
-}
-
 function toggleModal(){
 
     const modal =document.getElementById('modal');
@@ -94,11 +99,15 @@ function toggleModal(){
 
 async function utilizacao(){
     var tempo;
-    var data = new Date()
-    
+    var data = new Date();
     const cod = document.getElementById('codigoBilhete').value;
+    if(!isDigit(cod)) {
+        toggleModal();
+        document.getElementById("faladele").innerHTML ="código inválido";
+        return null;
+    };
     const response = await fetch(`http://localhost:8080/verificacao/${cod}`,{method:"POST"}).then((existe)=> existe.json());
-    const dado = response.COUNT
+    const dado = response.COUNT;
     if(dado == 1){
         const existeRec = await fetch(`http://localhost:8080/utilizacao/confirmarRecarga/${cod}`,{method:"POST"}).then((existeRecarga)=> existeRecarga.json());
         if(existeRec != 0){
@@ -128,29 +137,26 @@ async function utilizacao(){
                 const print = await fetch(`http://localhost:8080/utilizacao/create/${cod}/${tempo}`,{method:"POST"}).then((objeto)=> objeto.json());
                 if(print == 1){
                     document.getElementById("faladele").innerHTML = "Tipo do bilhete: " + tipoBilhete +`<br>`+ "Data de Expiração: " + dataExpiracaoFormat
-                    toggleModal();
                 }
             }else{
                 const dataExpiracao = await fetch(`http://localhost:8080/utilizacao/dataEx/${cod}`,{method:"POST"}).then((objeto)=> objeto.json());
                 
                 if(dataExpiracao == 1){
-                    
                     document.getElementById("faladele").innerHTML = "Sua recarga expirou";
                     document.getElementById("infosBilhete").innerHTML = "";
-                    toggleModal();
                 }else{
                     document.getElementById("faladele").innerHTML = "Tipo " + tipoBilhete + " válido";
-                    toggleModal();
                 }
             }
         }else{
-            document.getElementById("faladele").innerHTML = "Você não realizou nenhuma recarga";
-            toggleModal();
+                document.getElementById("infosBilhete").innerHTML = "";
+                document.getElementById("faladele").innerHTML = "Você não realizou nenhuma recarga";
         }
     }else{
-        toggleModal();
-        document.getElementById("faladele").innerHTML ="código inválido";
+            document.getElementById("infosBilhete").innerHTML = "";
+            document.getElementById("faladele").innerHTML ="código inválido";
     }
+    toggleModal();
 }
 
 async function addDiv(tipo,dataGeracao, dataRecarga, dataUtilizacao){
@@ -168,6 +174,10 @@ async function addDiv(tipo,dataGeracao, dataRecarga, dataUtilizacao){
 
 async function gerenciamento(){
     const cod = document.getElementById("codigoBilhete").value;
+    if(!isDigit(cod)) {
+        document.querySelector('.conteudo').innerHTML ='<b>Código inválido!</b>';
+        return null;
+    };
     const response = await fetch(`http://localhost:8080/verificacao/${cod}`,{method:"POST"}).then((existe)=> existe.json());
     const dado = response.COUNT;
     document.querySelector('.conteudo').innerHTML = "";

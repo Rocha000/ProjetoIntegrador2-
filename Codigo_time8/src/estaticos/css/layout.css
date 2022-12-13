@@ -284,6 +284,7 @@ a.SobreBilhete {
 } .termosDeUso a {
     position: relative;
     display: block;
+    cursor: pointer;
 } .termosDeUso a::before {
     left: 0;
     top: 0;
